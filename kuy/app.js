@@ -222,6 +222,8 @@
     cleanCode,
     shareLink,
     visaApi: VISA_APP.api,
+    visaLink,
+    hasContact: (type) => !!CONTACTS[type],
     quyCode,
     get lang() { return currentLang; },
     locale() { return { en: "en-US", ru: "ru-RU", vi: "vi-VN" }[currentLang] || "en-US"; }

@@ -52,8 +52,8 @@
             <h1 class="page-hero__title" data-i18n="vr.title">Visa runs from Quy Nhon</h1>
             <p class="page-hero__lead" data-i18n="vr.lead"></p>
             <div class="vr-cta">
-              <a href="#" class="btn btn--telegram btn--lg" data-visa="bot"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 3.6 2.9 10.8c-1.2.5-1.2 1.9 0 2.3l4.5 1.4 1.7 5.4c.3.9 1.4 1.1 2.1.5l2.6-2.4 4.9 3.6c.9.7 2.2.2 2.4-.9L23.9 5.5c.3-1.4-1.1-2.5-2.5-1.9zM9.9 14.4l-.4 3.7-1.4-4.6 10.4-6.8z"/></svg><span data-i18n="vr.ctaBot">Book in Telegram</span></a>
-              <a href="#" class="btn btn--light btn--lg" data-visa="web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span data-i18n="vr.ctaWeb">Book on the website</span></a>
+              <a href="#book" class="btn btn--primary btn--lg" data-open-tab="book"><span data-i18n="bk.cta">Book a visa run</span></a>
+              <a href="#" class="btn btn--light btn--lg" data-visa="bot"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 3.6 2.9 10.8c-1.2.5-1.2 1.9 0 2.3l4.5 1.4 1.7 5.4c.3.9 1.4 1.1 2.1.5l2.6-2.4 4.9 3.6c.9.7 2.2.2 2.4-.9L23.9 5.5c.3-1.4-1.1-2.5-2.5-1.9zM9.9 14.4l-.4 3.7-1.4-4.6 10.4-6.8z"/></svg><span data-i18n="vr.ctaBot">Book in Telegram</span></a>
             </div>
             <p class="vr-note" data-i18n="vr.ruOnly"></p>
             <p class="vr-ref" id="vrRef" hidden></p>
@@ -62,7 +62,16 @@
       </div>
     </section>
 
-    <section class="section section--tight">
+    <div class="tabs-bar">
+      <div class="container">
+        <div class="tabs" role="tablist" aria-label="Visa run">
+          <button type="button" class="tab" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true" data-tab="overview" data-i18n="bk.tabOverview">Overview</button>
+          <button type="button" class="tab" role="tab" id="tab-book" aria-controls="panel-book" aria-selected="false" data-tab="book" tabindex="-1"><span data-i18n="bk.tabBook">Book a visa run</span> <span class="tab__badge" data-i18n="bk.tabBadge">5 min</span></button>
+        </div>
+      </div>
+    </div>
+
+    <section class="section section--tight" role="tabpanel" id="panel-overview" aria-labelledby="tab-overview">
       <div class="container vr">
 
         <!-- Routes -->
@@ -205,6 +214,193 @@
         </div>
       </div>
     </section>
+    <section class="section section--tight" role="tabpanel" id="panel-book" aria-labelledby="tab-book" hidden>
+      <div class="container booking">
+
+        <!-- Road trip progress: the car drives from Quy Nhon to the border as the form is filled in -->
+        <div class="trip" id="trip">
+          <div class="trip__ends">
+            <span class="trip__end"><span aria-hidden="true">📍</span> <span data-i18n="bk.from">Quy Nhon</span></span>
+            <span class="trip__end trip__end--to"><span id="tripFlag" aria-hidden="true">🏁</span> <span id="tripTo" data-i18n="bk.toBorder">The border</span></span>
+          </div>
+          <div class="trip__road" aria-hidden="true">
+            <div class="trip__scenery"></div>
+            <div class="trip__lane"></div>
+            <div class="trip__done"></div>
+            <div class="trip__car" id="tripCar">
+              <svg viewBox="0 0 120 56">
+                <ellipse cx="60" cy="52" rx="50" ry="3" fill="rgba(0,0,0,.15)"/>
+                <path d="M10 38c0-6 4-10 10-11l14-2 12-11c3-3 7-4 11-4h22c5 0 9 2 12 6l8 9 10 2c4 1 7 4 7 8v5c0 2-2 4-4 4H14c-2 0-4-2-4-4z" fill="#1d64f2"/>
+                <path d="M47 15c2-2 5-3 8-3h9v14H38zM68 12h11c3 0 6 1 8 4l7 10H68z" fill="#cfe2ff"/>
+                <rect x="98" y="32" width="9" height="5" rx="2" fill="#ffd54a"/>
+                <rect x="10" y="33" width="6" height="5" rx="2" fill="#ff6b5b"/>
+                <path d="M30 28h80" stroke="#154fc4" stroke-width="2"/>
+                <g class="trip__wheel"><circle cx="32" cy="44" r="9" fill="#1c1e21"/><circle cx="32" cy="44" r="4" fill="#d9dde3"/><path d="M32 36v16M24 44h16" stroke="#8a929c" stroke-width="1.5"/></g>
+                <g class="trip__wheel"><circle cx="92" cy="44" r="9" fill="#1c1e21"/><circle cx="92" cy="44" r="4" fill="#d9dde3"/><path d="M92 36v16M84 44h16" stroke="#8a929c" stroke-width="1.5"/></g>
+              </svg>
+            </div>
+            <div class="trip__flagpole"><span id="tripFlagBig">🏁</span></div>
+          </div>
+          <p class="trip__status" id="tripStatus" aria-live="polite"></p>
+        </div>
+
+        <!-- Steps indicator -->
+        <ol class="steps-nav" id="stepsNav">
+          <li data-step="1"><span>1</span><em data-i18n="bk.n1">Destination</em></li>
+          <li data-step="2"><span>2</span><em data-i18n="bk.n2">Date</em></li>
+          <li data-step="3"><span>3</span><em data-i18n="bk.n3">Passengers</em></li>
+          <li data-step="4"><span>4</span><em data-i18n="bk.n4">Contact</em></li>
+          <li data-step="5"><span>5</span><em data-i18n="bk.n5">Review</em></li>
+        </ol>
+
+        <form class="wizard" id="wizard" novalidate autocomplete="on">
+          <!-- STEP 1 -->
+          <fieldset class="wstep" data-step="1">
+            <legend class="wstep__title" data-i18n="bk.s1Title">Where do you want to go?</legend>
+            <p class="wstep__help" data-i18n="bk.s1Help">Both trips take one day. You leave Quy Nhon early in the morning and come back the same day.</p>
+            <div class="choice-grid">
+              <label class="choice">
+                <input type="radio" name="dest" value="laos">
+                <span class="choice__box">
+                  <span class="choice__flag" aria-hidden="true">🇱🇦</span>
+                  <strong data-i18n="vr.laos">Laos · Bo Y border</strong>
+                  <small data-i18n="vr.laosMeta">1 day · early morning departure</small>
+                  <span class="choice__text" data-i18n="bk.laosText"></span>
+                </span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="dest" value="cambodia">
+                <span class="choice__box">
+                  <span class="choice__flag" aria-hidden="true">🇰🇭</span>
+                  <strong data-i18n="vr.cambodia">Cambodia · Le Thanh border</strong>
+                  <small data-i18n="vr.cambodiaMeta">Visa on arrival · back by evening</small>
+                  <span class="choice__text" data-i18n="bk.cambodiaText"></span>
+                </span>
+              </label>
+            </div>
+            <p class="field-error" data-error="dest" hidden></p>
+          </fieldset>
+
+          <!-- STEP 2 -->
+          <fieldset class="wstep" data-step="2" hidden>
+            <legend class="wstep__title" data-i18n="bk.s2Title">When do you want to go?</legend>
+            <p class="wstep__help" data-i18n="bk.s2Help">Pick a scheduled departure, or ask for any other date. If enough people join, we open a group.</p>
+            <div class="dep-choices" id="depChoices"></div>
+            <label class="choice choice--wide">
+              <input type="radio" name="when" value="request">
+              <span class="choice__box choice__box--row">
+                <span class="choice__flag" aria-hidden="true">📅</span>
+                <span><strong data-i18n="bk.otherDate">Another date</strong><small data-i18n="bk.otherDateHelp">We’ll try to form a group for this day</small></span>
+              </span>
+            </label>
+            <div class="field" id="dateField" hidden>
+              <label class="field__label" for="reqDate" data-i18n="bk.dateLabel">Preferred date</label>
+              <input class="input" type="date" id="reqDate" name="reqDate">
+              <p class="field__hint" data-i18n="bk.dateHint">Tap the field to open the calendar.</p>
+            </div>
+            <p class="field-error" data-error="when" hidden></p>
+          </fieldset>
+
+          <!-- STEP 3 -->
+          <fieldset class="wstep" data-step="3" hidden>
+            <legend class="wstep__title" data-i18n="bk.s3Title">Who’s going?</legend>
+            <p class="wstep__help" data-i18n="bk.s3Help">Add everyone who is traveling, including you. Names must match the passports.</p>
+            <div class="pax-count">
+              <span class="field__label" id="paxCountLabel" data-i18n="bk.paxCount">Number of travelers</span>
+              <div class="stepper stepper--lg" role="group" aria-labelledby="paxCountLabel">
+                <button type="button" class="stepper__btn" id="paxMinus" aria-label="−">−</button>
+                <output class="stepper__val" id="paxVal">1</output>
+                <button type="button" class="stepper__btn" id="paxPlus" aria-label="+">+</button>
+              </div>
+            </div>
+            <div id="paxList" class="pax-list"></div>
+          </fieldset>
+
+          <!-- STEP 4 -->
+          <fieldset class="wstep" data-step="4" hidden>
+            <legend class="wstep__title" data-i18n="bk.s4Title">How can we reach you?</legend>
+            <p class="wstep__help" data-i18n="bk.s4Help">The organizer will message you to confirm the trip, the pickup time and the price.</p>
+            <div class="field">
+              <label class="field__label" for="cName" data-i18n="bk.nameLabel">Your name</label>
+              <input class="input" id="cName" name="cName" autocomplete="name" maxlength="120">
+              <p class="field__hint" data-i18n="bk.nameHint">First name is enough, e.g. John</p>
+              <p class="field-error" data-error="cName" hidden></p>
+            </div>
+            <div class="field">
+              <span class="field__label" data-i18n="bk.channelLabel">Best way to contact you</span>
+              <div class="seg" role="radiogroup">
+                <label class="seg__opt"><input type="radio" name="channel" value="telegram" checked><span>Telegram</span></label>
+                <label class="seg__opt"><input type="radio" name="channel" value="whatsapp"><span>WhatsApp</span></label>
+              </div>
+            </div>
+            <div class="field" id="tgField">
+              <label class="field__label" for="cTg" data-i18n="bk.tgLabel">Telegram username</label>
+              <div class="input-prefix"><span>@</span><input class="input" id="cTg" name="cTg" maxlength="33" autocapitalize="off" spellcheck="false" placeholder="johnsmith"></div>
+              <p class="field__hint" data-i18n="bk.tgHint">Find it in Telegram: Settings → Username. Letters, numbers and _ only.</p>
+              <p class="field-error" data-error="cTg" hidden></p>
+            </div>
+            <div class="field" id="waField" hidden>
+              <label class="field__label" for="cPhone" data-i18n="bk.phoneLabel">WhatsApp number</label>
+              <input class="input" id="cPhone" name="cPhone" type="tel" autocomplete="tel" maxlength="20" placeholder="+1 555 123 4567">
+              <p class="field__hint" data-i18n="bk.phoneHint">Include the country code: +1 for the US, +84 for Vietnam.</p>
+              <p class="field-error" data-error="cPhone" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="cPickup" data-i18n="bk.pickupLabel">Pickup in Quy Nhon</label>
+              <input class="input" id="cPickup" name="cPickup" maxlength="300" autocomplete="street-address">
+              <p class="field__hint" data-i18n="bk.pickupHint">Hotel name or street address, e.g. FLC Sea Tower</p>
+              <p class="field-error" data-error="cPickup" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="cNote"><span data-i18n="bk.noteLabel">Comments</span> <span class="field__opt" data-i18n="bk.optional">optional</span></label>
+              <textarea class="input" id="cNote" name="cNote" rows="3" maxlength="500"></textarea>
+              <p class="field__hint" data-i18n="bk.noteHint">Luggage, visa questions, anything else we should know</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="cClub"><span data-i18n="bk.clubLabel">QUY Club invite code</span> <span class="field__opt" data-i18n="bk.optional">optional</span></label>
+              <input class="input input--code" id="cClub" name="cClub" maxlength="43" autocapitalize="characters" spellcheck="false" placeholder="QUY…">
+              <p class="field__hint" data-i18n="bk.clubHint">If a friend invited you, their code starts with QUY.</p>
+              <p class="field-error" data-error="cClub" hidden></p>
+            </div>
+          </fieldset>
+
+          <!-- STEP 5 -->
+          <fieldset class="wstep" data-step="5" hidden>
+            <legend class="wstep__title" data-i18n="bk.s5Title">Check your request</legend>
+            <p class="wstep__help" data-i18n="bk.s5Help">Make sure everything is right. You can go back and edit any part.</p>
+            <div class="review" id="review"></div>
+            <div class="total" id="total"></div>
+            <p class="nopay"><span aria-hidden="true">🔒</span> <span data-i18n="bk.noPrepay">No prepayment. You pay when you board.</span></p>
+          </fieldset>
+
+          <!-- DONE -->
+          <div class="wstep wdone" data-step="6" hidden tabindex="-1">
+            <div class="wdone__icon" aria-hidden="true">🎉</div>
+            <h2 class="wstep__title" data-i18n="bk.doneTitle">Your request is ready</h2>
+            <p class="wstep__help"><span data-i18n="bk.doneCode">Request number:</span> <strong id="doneCode"></strong></p>
+            <p class="wdone__text" data-i18n="bk.doneText">Send it to our organizer. We’ll check the seats and message you to confirm.</p>
+            <div class="wdone__actions">
+              <a class="btn btn--telegram btn--lg" id="sendTg" target="_blank" rel="noopener"><span data-i18n="bk.sendTg">Send in Telegram</span></a>
+              <a class="btn btn--whatsapp btn--lg" id="sendWa" target="_blank" rel="noopener" hidden><span data-i18n="bk.sendWa">Send in WhatsApp</span></a>
+              <button type="button" class="btn btn--light btn--lg" id="copyReq" data-i18n="bk.copy">Copy request</button>
+            </div>
+            <p class="share__status" id="copyStatus" role="status"></p>
+            <pre class="wdone__msg" id="doneMsg"></pre>
+            <ol class="wdone__next">
+              <li data-i18n="bk.next1">The organizer confirms your seats or forms a group for your date.</li>
+              <li data-i18n="bk.next2">You get the transport, departure time and final price.</li>
+              <li data-i18n="bk.next3">On the day, we pick you up at your hotel. You pay when you board.</li>
+            </ol>
+            <button type="button" class="btn btn--light" id="newReq" data-i18n="bk.newReq">Start a new request</button>
+          </div>
+
+          <div class="wnav" id="wnav">
+            <button type="button" class="btn btn--light btn--lg" id="backBtn" data-i18n="bk.back">Back</button>
+            <button type="submit" class="btn btn--primary btn--lg" id="nextBtn" data-i18n="bk.next">Continue</button>
+          </div>
+        </form>
+      </div>
+    </section>
   </main>
 
   <a href="../index.html#contact" class="fab" data-link="primary" aria-label="Message us">
@@ -235,5 +431,6 @@
   <script src="../i18n.js"></script>
   <script src="../app.js"></script>
   <script src="visa.js"></script>
+  <script src="book.js"></script>
 </body>
 </html>

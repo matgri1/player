@@ -104,7 +104,15 @@
 
   function renderAll() { renderSchedule(); renderFees(); renderRef(); }
 
-  getJSON("/journeys/recruitment/departures")
+  const depP = getJSON("/journeys/recruitment/departures");
+  const feeP = getJSON("/journeys/visa-options");
+  // Shared with the booking form (book.js): { departures: [] | null, fees: {} | null }
+  window.KUY_VISA_DATA = Promise.allSettled([depP, feeP]).then(([d, f]) => ({
+    departures: d.status === "fulfilled" && Array.isArray(d.value) ? d.value : null,
+    fees: f.status === "fulfilled" && f.value && typeof f.value === "object" ? f.value : null
+  }));
+
+  depP
     .then((rows) => {
       departures = (Array.isArray(rows) ? rows : [])
         .filter((d) => d && /^\d{4}-\d{2}-\d{2}$/.test(d.departure_date || ""))
@@ -114,7 +122,7 @@
     .catch(() => { departures = "error"; })
     .finally(renderSchedule);
 
-  getJSON("/journeys/visa-options")
+  feeP
     .then((o) => { if (o && typeof o === "object") { visaFees = o; renderFees(); } })
     .catch(() => { /* keep the default prices shown in the page */ });
 
