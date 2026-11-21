@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#efe3d6"/>
+  <circle cx="70" cy="240" r="90" fill="#e5d3c0"/>
+  <ellipse cx="200" cy="190" rx="155" ry="80" fill="#ffffff"/>
+  <defs>
+    <g id="nut">
+      <ellipse cx="0" cy="0" rx="30" ry="36" fill="#6b3c1f"/>
+      <ellipse cx="-4" cy="-6" rx="22" ry="27" fill="#8a5128"/>
+      <path d="M-30 0h60" stroke="#f3e2c3" stroke-width="5"/>
+      <path d="M-14 -20c4 6 4 12 0 18M8 -22c4 6 4 12 0 18M-12 10c4 6 4 12 0 18M10 8c4 6 4 12 0 18" stroke="#56301a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="-12" cy="-16" rx="6" ry="4" fill="#b07642" opacity=".7"/>
+    </g>
+  </defs>
+  <use href="#nut" x="140" y="180"/><use href="#nut" x="205" y="160"/><use href="#nut" x="270" y="185"/>
+  <use href="#nut" x="175" y="215"/><use href="#nut" x="240" y="220"/>
+  <path d="M310 110c0-20 40-20 40 0v40c0 12-40 12-40 0z" fill="#3a6ea5"/>
+  <rect x="310" y="118" width="40" height="18" fill="#f5f0e1"/>
+  <path d="M60 90c20-10 40-10 60 0" stroke="#c9a37a" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>
