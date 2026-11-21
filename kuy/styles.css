@@ -426,3 +426,86 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
   .bubble:not(.is-hidden), .order-bar, .bubble--typing span { animation: none; }
   .card:hover, .dish:hover, .pillar:hover { transform: none; }
 }
+
+/* ================= Telegram + channel buttons ================= */
+:root { --telegram: #229ed9; --telegram-dark: #1b86b9; }
+.btn--telegram { background: var(--telegram); color: #fff; }
+.btn--telegram:hover { background: var(--telegram-dark); }
+.btn--channel { background: var(--whatsapp); color: #fff; }
+.btn--channel:hover { background: var(--whatsapp-dark); }
+.channel-telegram .btn--channel { background: var(--telegram); }
+.channel-telegram .btn--channel:hover { background: var(--telegram-dark); }
+.channel-telegram .fab { background: var(--telegram); box-shadow: 0 8px 24px rgba(34,158,217,.4); }
+.channel-telegram .fab:hover { background: var(--telegram-dark); }
+.ico-tg { display: none; }
+.channel-telegram .ico-tg { display: block; }
+.channel-telegram .ico-wa { display: none; }
+.nav__refer { color: var(--blue) !important; font-weight: 600 !important; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ================= Referral banner ================= */
+.ref-banner { background: #fff6e0; border-bottom: 1px solid #f3e0b0; }
+.ref-banner__inner { display: flex; align-items: center; gap: 12px; padding-block: 10px; }
+.ref-banner__icon { font-size: 22px; flex: none; }
+.ref-banner__text { flex: 1; min-width: 0; font-size: 15px; color: #6b4a00; }
+.ref-banner__text strong { color: #4d3500; }
+.ref-banner__close { flex: none; width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: #6b4a00; font-size: 22px; line-height: 1; cursor: pointer; }
+.ref-banner__close:hover { background: rgba(0,0,0,.06); }
+
+/* ================= Home teaser ================= */
+.refer-teaser { display: flex; align-items: center; gap: 20px; padding: 28px 32px; border-radius: 20px; background: linear-gradient(135deg, #fff6e0, #ffe9dc); border: 1px solid #f6dcc0; }
+.refer-teaser__icon { font-size: 44px; flex: none; }
+.refer-teaser__text { flex: 1; min-width: 0; }
+.refer-teaser__title { font-size: 24px; font-weight: 800; letter-spacing: -.02em; }
+.refer-teaser__text p { margin-top: 6px; color: var(--muted); }
+#refer + #contact, .section--tight + #contact { padding-top: 24px; }
+
+/* ================= Refer page ================= */
+.page-hero__emoji { font-size: 34px; line-height: 1; }
+.refer { display: flex; flex-direction: column; gap: 24px; }
+.rewards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.reward { display: flex; align-items: center; gap: 18px; padding: 22px 26px; border-radius: 18px; background: var(--surface); box-shadow: var(--shadow); }
+.reward__amount { font-size: 44px; font-weight: 800; letter-spacing: -.03em; color: var(--whatsapp-dark); font-variant-numeric: tabular-nums; flex: none; }
+.reward--you .reward__amount { color: var(--blue); }
+.reward__label { font-size: 17px; font-weight: 600; }
+.refer__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+.panel { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 26px; background: var(--surface); border-radius: 18px; box-shadow: var(--shadow); min-width: 0; }
+.panel--friend { background: #fffaf0; box-shadow: none; border: 2px dashed #f0d9a8; }
+.panel__step { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 800; }
+.panel__step--friend { background: #ffe9b8; font-size: 18px; }
+.panel__title { font-size: 21px; font-weight: 800; }
+.panel__text { color: var(--muted); font-size: 15px; }
+.panel__buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+.code-form { display: flex; gap: 8px; }
+.code-input { flex: 1; min-width: 0; font: 700 18px/1.2 var(--font); letter-spacing: .06em; text-transform: uppercase; padding: 12px 14px; border: 2px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--text); }
+.code-input::placeholder { color: #b4bac3; }
+.code-input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-soft); }
+.form-error { color: #c62828; font-size: 14px; font-weight: 500; }
+.share { display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 12px; background: var(--bg); }
+.share__link { font-size: 14px; font-weight: 600; color: var(--blue-dark); overflow-wrap: anywhere; user-select: all; }
+.share__buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.share__status { font-size: 14px; color: var(--whatsapp-dark); font-weight: 600; }
+.share__status:empty { display: none; }
+.applied { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border-radius: 12px; background: #e3f6ea; color: #12703c; font-weight: 600; font-size: 15px; }
+.applied[hidden] { display: none; }
+.applied__remove { border: 0; background: transparent; color: #12703c; text-decoration: underline; font: 600 14px/1 var(--font); cursor: pointer; flex: none; }
+.rules { padding: 24px 28px; background: var(--surface); border-radius: 18px; box-shadow: var(--shadow); }
+.rules__title { font-size: 20px; font-weight: 800; margin-bottom: 10px; }
+.rules__list { display: flex; flex-direction: column; gap: 8px; }
+.rules__list li { position: relative; padding-left: 26px; color: var(--muted); }
+.rules__list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--whatsapp); font-weight: 800; }
+
+@media (max-width: 960px) {
+  .refer__grid { grid-template-columns: 1fr; }
+  .refer-teaser { flex-wrap: wrap; }
+}
+@media (max-width: 600px) {
+  .rewards { grid-template-columns: 1fr; }
+  .reward { padding: 18px 20px; }
+  .reward__amount { font-size: 36px; }
+  .refer-teaser { padding: 22px 20px; }
+  .refer-teaser .btn { width: 100%; }
+  .code-form { flex-direction: column; }
+  .panel { padding: 20px; }
+}

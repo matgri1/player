@@ -78,7 +78,7 @@
     const msg = chosen.length
       ? K.t("msg.toursPick", { places: chosen.join(", ") })
       : K.t("msg.tours");
-    K.setContactLink(tourBtn, "whatsapp", msg);
+    K.setContactLink(tourBtn, "primary", msg);
     const count = document.getElementById("tourCount");
     if (count) count.textContent = chosen.length ? " (" + chosen.length + ")" : "";
   }

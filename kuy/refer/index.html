@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Refer a friend — Kuy, Quy Nhon</title>
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231d64f2'/%3E%3Ccircle cx='44' cy='20' r='8' fill='%23ff8a5b'/%3E%3Cpath d='M8 44c8-6 16-6 24 0s16 6 24 0v12H8z' fill='%2337c3c9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body data-root="../" data-title-key="refer.metaTitle" class="subpage subpage--refer">
+
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a href="../index.html" class="logo" aria-label="Kuy home">
+        <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#1d64f2"/><circle cx="44" cy="20" r="8" fill="#ff8a5b"/><path d="M8 44c8-6 16-6 24 0s16 6 24 0v12H8z" fill="#37c3c9"/></svg>
+        <span class="logo__text">Kuy</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="../index.html#services" data-i18n="nav.services">Services</a>
+        <a href="../index.html#how" data-i18n="nav.how">How it works</a>
+        <a href="../index.html#about" data-i18n="nav.about">About us</a>
+        <a href="../index.html#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="../refer/index.html" class="nav__refer" data-i18n="nav.refer">Refer a friend</a>
+      </nav>
+
+      <div class="header__actions">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" class="lang__btn" data-lang="en">EN</button>
+          <button type="button" class="lang__btn" data-lang="ru">RU</button>
+          <button type="button" class="lang__btn" data-lang="vi">VI</button>
+        </div>
+        <a href="../index.html#contact" class="btn btn--primary btn--sm header__cta" data-link="primary" data-i18n="nav.cta">Message us</a>
+        <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <a href="../index.html" class="crumb" data-i18n="page.backHome">← Home</a>
+        <div class="page-hero__row">
+          <span class="card__icon card__icon--sand page-hero__icon" aria-hidden="true"><span class="page-hero__emoji">🎁</span></span>
+          <div class="page-hero__text">
+            <h1 class="page-hero__title" data-i18n="refer.title">Refer a friend</h1>
+            <p class="page-hero__lead" data-i18n="refer.lead">Share Kuy with friends. When they use our services, you both save.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container refer">
+        <div class="rewards">
+          <div class="reward">
+            <span class="reward__amount" data-i18n="refer.amountFriend">$5</span>
+            <p class="reward__label" data-i18n="refer.rewardFriend">off for your friend’s first order</p>
+          </div>
+          <div class="reward reward--you">
+            <span class="reward__amount" data-i18n="refer.amountYou">$5</span>
+            <p class="reward__label" data-i18n="refer.rewardYou">off your next service, for every friend who pays</p>
+          </div>
+        </div>
+
+        <div class="refer__grid">
+          <!-- Step 1: get a code -->
+          <div class="panel">
+            <span class="panel__step">1</span>
+            <h2 class="panel__title" data-i18n="refer.getTitle">Get your code</h2>
+            <p class="panel__text" data-i18n="refer.getText">Message us and we’ll send your personal code. It’s linked to your WhatsApp number or your Telegram account, so it stays the same on every device.</p>
+            <div class="panel__buttons">
+              <a href="../index.html#contact" class="btn btn--whatsapp" data-link="whatsapp" data-msg="msg.referJoin">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+                <span data-i18n="refer.viaWhatsApp">Get it on WhatsApp</span>
+              </a>
+              <a href="../index.html#contact" class="btn btn--telegram" data-link="telegram" data-msg="msg.referJoin">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 3.6 2.9 10.8c-1.2.5-1.2 1.9 0 2.3l4.5 1.4 1.7 5.4c.3.9 1.4 1.1 2.1.5l2.6-2.4 4.9 3.6c.9.7 2.2.2 2.4-.9L23.9 5.5c.3-1.4-1.1-2.5-2.5-1.9zM9.9 14.4l-.4 3.7-1.4-4.6 10.4-6.8z"/></svg>
+                <span data-i18n="refer.viaTelegram">Get it on Telegram</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Step 2: make & share the link -->
+          <div class="panel">
+            <span class="panel__step">2</span>
+            <h2 class="panel__title" data-i18n="refer.shareTitle">Share your link</h2>
+            <p class="panel__text" data-i18n="refer.shareText">Already have a code? Enter it to get your personal link.</p>
+            <form class="code-form" id="myCodeForm" autocomplete="off">
+              <label class="sr-only" for="myCode" data-i18n="refer.myCodeLabel">Your code</label>
+              <input class="code-input" id="myCode" name="myCode" type="text" maxlength="20" placeholder="ANNA7" spellcheck="false" autocapitalize="characters">
+              <button type="submit" class="btn btn--primary" data-i18n="refer.makeLink">Make my link</button>
+            </form>
+            <p class="form-error" id="myCodeError" role="alert" hidden></p>
+            <div class="share" id="shareBox" hidden>
+              <output class="share__link" id="shareLink"></output>
+              <div class="share__buttons">
+                <button type="button" class="btn btn--primary" id="shareBtn" data-i18n="refer.share">Share</button>
+                <button type="button" class="btn btn--light" id="copyBtn" data-i18n="refer.copy">Copy link</button>
+              </div>
+              <p class="share__status" id="shareStatus" role="status"></p>
+            </div>
+          </div>
+
+          <!-- Friend side: enter a code -->
+          <div class="panel panel--friend">
+            <span class="panel__step panel__step--friend">🎁</span>
+            <h2 class="panel__title" data-i18n="refer.friendTitle">Got a code from a friend?</h2>
+            <p class="panel__text" data-i18n="refer.friendText">Enter it here. We’ll add it to your message automatically, so you get your discount.</p>
+            <form class="code-form" id="friendCodeForm" autocomplete="off">
+              <label class="sr-only" for="friendCode" data-i18n="refer.friendLabel">Friend’s code</label>
+              <input class="code-input" id="friendCode" name="friendCode" type="text" maxlength="20" placeholder="MIKE25" spellcheck="false" autocapitalize="characters">
+              <button type="submit" class="btn btn--primary" data-i18n="refer.apply">Apply</button>
+            </form>
+            <p class="form-error" id="friendCodeError" role="alert" hidden></p>
+            <p class="applied" id="appliedBox" hidden>
+              <span class="applied__text" id="appliedText"></span>
+              <button type="button" class="applied__remove" id="removeCode" data-i18n="refer.remove">Remove</button>
+            </p>
+          </div>
+        </div>
+
+        <div class="rules">
+          <h2 class="rules__title" data-i18n="refer.rulesTitle">Rules</h2>
+          <ul class="rules__list">
+            <li data-i18n="refer.rule1">Your friend gets {friend} off their first order.</li>
+            <li data-i18n="refer.rule2">You get {you} off your next service after your friend pays. Works for visa runs, tours, exchange and food.</li>
+            <li data-i18n="refer.rule3">New clients only. You can’t refer yourself.</li>
+            <li data-i18n="refer.rule4">One code per person, linked to your WhatsApp number or Telegram account.</li>
+            <li data-i18n="refer.rule5">Rewards are discounts, not cash. We may update these rules; the current rules are always on this page.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a href="../index.html#contact" class="fab" data-link="primary" aria-label="Message us">
+    <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg><svg class="ico-tg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 3.6 2.9 10.8c-1.2.5-1.2 1.9 0 2.3l4.5 1.4 1.7 5.4c.3.9 1.4 1.1 2.1.5l2.6-2.4 4.9 3.6c.9.7 2.2.2 2.4-.9L23.9 5.5c.3-1.4-1.1-2.5-2.5-1.9zM9.9 14.4l-.4 3.7-1.4-4.6 10.4-6.8z"/></svg>
+    <span data-i18n="nav.cta">Message us</span>
+  </a>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="../index.html" class="logo">
+          <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#1d64f2"/><circle cx="44" cy="20" r="8" fill="#ff8a5b"/><path d="M8 44c8-6 16-6 24 0s16 6 24 0v12H8z" fill="#37c3c9"/></svg>
+          <span class="logo__text">Kuy</span>
+        </a>
+        <p class="footer__tagline" data-i18n="footer.tagline">Your local helper in Quy Nhon, Vietnam.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="../index.html#services" data-i18n="nav.services">Services</a>
+        <a href="../index.html#how" data-i18n="nav.how">How it works</a>
+        <a href="../index.html#about" data-i18n="nav.about">About us</a>
+        <a href="../index.html#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="../refer/index.html" class="nav__refer" data-i18n="nav.refer">Refer a friend</a>
+      </nav>
+      <p class="footer__copy">© <span id="year">2026</span> Kuy. <span data-i18n="footer.rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <script src="../i18n.js"></script>
+  <script src="../app.js"></script>
+  <script src="refer.js"></script>
+</body>
+</html>

@@ -92,7 +92,7 @@
     bar.querySelector(".order-bar__list").textContent =
       items.map((d) => cart[d.id] + " × " + nameOf(d)).join(", ");
     const lines = items.map((d) => "• " + cart[d.id] + " × " + nameOf(d)).join("\n");
-    K.setContactLink(bar.querySelector(".order-bar__send"), "whatsapp", K.t("msg.foodOrder", { items: lines }));
+    K.setContactLink(bar.querySelector(".order-bar__send"), "primary", K.t("msg.foodOrder", { items: lines }));
     bar.querySelector(".order-bar__send span").textContent = K.t("food.send");
     bar.querySelector(".order-bar__clear").textContent = K.t("food.clear");
   }

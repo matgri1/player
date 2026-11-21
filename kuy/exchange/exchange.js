@@ -33,7 +33,7 @@
     resultEl.value = fmt(amount * c.rate) + " ₫";
     resultEl.textContent = resultEl.value;
     rateLineEl.textContent = K.t("ex.rateLine", { cur: c.code, rate: fmt(c.rate) });
-    K.setContactLink(ctaEl, "whatsapp",
+    K.setContactLink(ctaEl, "primary",
       K.t("msg.exchangeAmount", { amount: fmt(amount), cur: c.code, rate: fmt(c.rate) }));
   }
 
