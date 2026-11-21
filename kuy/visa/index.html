@@ -67,6 +67,8 @@
         <div class="tabs" role="tablist" aria-label="Visa run">
           <button type="button" class="tab" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true" data-tab="overview" data-i18n="bk.tabOverview">Overview</button>
           <button type="button" class="tab" role="tab" id="tab-book" aria-controls="panel-book" aria-selected="false" data-tab="book" tabindex="-1"><span data-i18n="bk.tabBook">Book a visa run</span> <span class="tab__badge" data-i18n="bk.tabBadge">5 min</span></button>
+          <button type="button" class="tab" role="tab" id="tab-when" aria-controls="panel-when" aria-selected="false" data-tab="when" tabindex="-1" data-i18n="wc.tab">When to go?</button>
+          <button type="button" class="tab" role="tab" id="tab-checklist" aria-controls="panel-checklist" aria-selected="false" data-tab="checklist" tabindex="-1" data-i18n="ck.tab">Packing list</button>
         </div>
       </div>
     </div>
@@ -513,6 +515,105 @@
         </form>
       </div>
     </section>
+    <!-- ========== WHEN TO GO: stay calculator ========== -->
+    <section class="section section--tight" role="tabpanel" id="panel-when" aria-labelledby="tab-when" hidden>
+      <div class="container booking">
+        <form class="wizard wc" id="wcForm" novalidate>
+          <div class="wstep">
+            <h2 class="wstep__title" data-i18n="wc.title">When do I need a visa run?</h2>
+            <p class="wstep__help" data-i18n="wc.sub">Find the last day of your stay and the trips that get you out in time.</p>
+          </div>
+          <div class="field">
+            <span class="field__label" data-i18n="wc.modeLabel">What do you know?</span>
+            <div class="seg seg--wrap" role="radiogroup">
+              <label class="seg__opt"><input type="radio" name="wcMode" value="end" checked><span data-i18n="wc.modeEnd">My last day of stay</span></label>
+              <label class="seg__opt"><input type="radio" name="wcMode" value="entry"><span data-i18n="wc.modeEntry">My entry date</span></label>
+            </div>
+          </div>
+          <div class="field" id="wcEndField">
+            <label class="field__label" for="wcEnd" data-i18n="wc.endLabel">Last day of stay</label>
+            <input class="input" type="date" id="wcEnd" name="wcEnd">
+            <p class="field__hint" data-i18n="wc.endHint">The “until” date in your passport stamp or on your e-visa. This is the most accurate option.</p>
+          </div>
+          <div id="wcEntryFields" hidden>
+            <div class="field">
+              <label class="field__label" for="wcEntry" data-i18n="wc.entryLabel">Date you entered Vietnam</label>
+              <input class="input" type="date" id="wcEntry" name="wcEntry">
+              <p class="field__hint" data-i18n="wc.entryHint">The date on your arrival stamp.</p>
+            </div>
+            <div class="field">
+              <span class="field__label" data-i18n="wc.typeLabel">How did you enter?</span>
+              <div class="visa-pick visa-pick--3" role="radiogroup">
+                <label class="vchoice"><input type="radio" name="wcType" value="45" checked><span><strong data-i18n="bk.v_stamp">Visa-free stamp · 45 days</strong><small data-i18n="wc.t45">Russia, UK, Germany and other visa-free passports</small></span></label>
+                <label class="vchoice"><input type="radio" name="wcType" value="90"><span><strong data-i18n="bk.v_evisa90">E-visa · 90 days</strong><small data-i18n="wc.t90">Most US travelers</small></span></label>
+                <label class="vchoice"><input type="radio" name="wcType" value="custom"><span><strong data-i18n="wc.tOther">Other</strong><small data-i18n="wc.tOtherHint">Enter the number of days</small></span></label>
+              </div>
+            </div>
+            <div class="field" id="wcDaysField" hidden>
+              <label class="field__label" for="wcDays" data-i18n="wc.daysLabel">Days allowed</label>
+              <input class="input input--short" type="number" id="wcDays" name="wcDays" min="1" max="365" inputmode="numeric" value="30">
+            </div>
+            <p class="field__warn" data-i18n="wc.entryWarn">This is an estimate. The date in your passport stamp or on your e-visa is what counts.</p>
+          </div>
+
+          <div class="wc-result" id="wcResult" hidden aria-live="polite">
+            <div class="wc-big">
+              <span class="wc-big__label" data-i18n="wc.lastDay">Your last day in Vietnam</span>
+              <strong class="wc-big__date" id="wcDate"></strong>
+              <span class="wc-big__left" id="wcLeft"></span>
+            </div>
+            <div class="wc-bar" id="wcBar" role="img"><div class="wc-bar__fill"></div><span class="wc-bar__bus" aria-hidden="true">🚌</span></div>
+            <p class="wc-msg" id="wcMsg"></p>
+
+            <div class="wc-trips">
+              <h3 class="wc-h3" data-i18n="wc.tripsTitle">Trips that get you out in time</h3>
+              <div id="wcTrips"></div>
+            </div>
+
+            <div class="wc-remind">
+              <h3 class="wc-h3" data-i18n="wc.remindTitle">Don’t miss it</h3>
+              <p class="wstep__help" data-i18n="wc.remindText">Get a reminder a week before your stay ends.</p>
+              <div class="wc-remind__buttons">
+                <a class="btn btn--telegram" id="wcTg" target="_blank" rel="noopener"><span data-i18n="wc.remindTg">Remind me in Telegram</span></a>
+                <span class="btn btn--light btn--disabled" id="wcTgSoon" aria-disabled="true" hidden><span data-i18n="wc.remindTgSoon">Telegram reminders: coming soon</span></span>
+                <a class="btn btn--light" id="wcCal" target="_blank" rel="noopener"><span data-i18n="wc.remindCal">Add to Google Calendar</span></a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========== PACKING CHECKLIST ========== -->
+    <section class="section section--tight" role="tabpanel" id="panel-checklist" aria-labelledby="tab-checklist" hidden>
+      <div class="container booking">
+        <div class="wizard ck">
+          <div class="wstep">
+            <h2 class="wstep__title" data-i18n="ck.title">Visa run packing list</h2>
+            <p class="wstep__help" data-i18n="ck.sub">Tick things off the evening before. Your progress is saved on this device.</p>
+          </div>
+          <div class="ck-top">
+            <div class="ck-progress">
+              <span class="ck-progress__icon" id="ckIcon" aria-hidden="true">🧳</span>
+              <div class="ck-progress__body">
+                <strong id="ckCount"></strong>
+                <div class="ck-progress__bar"><div id="ckFill"></div></div>
+              </div>
+            </div>
+            <div class="seg" role="radiogroup" aria-label="Border">
+              <label class="seg__opt"><input type="radio" name="ckDest" value="all" checked><span data-i18n="ck.both">Both</span></label>
+              <label class="seg__opt"><input type="radio" name="ckDest" value="laos"><span>🇱🇦 <span data-i18n="vr.countryLaos">Laos</span></span></label>
+              <label class="seg__opt"><input type="radio" name="ckDest" value="cambodia"><span>🇰🇭 <span data-i18n="vr.countryCambodia">Cambodia</span></span></label>
+            </div>
+          </div>
+          <div id="ckList" class="ck-list"></div>
+          <div class="ck-foot">
+            <button type="button" class="btn btn--light" id="ckReset" data-i18n="ck.reset">Clear all ticks</button>
+            <a href="#book" class="btn btn--primary" data-open-tab="book" data-i18n="bk.cta">Book a visa run</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <a href="../index.html#contact" class="fab" data-link="primary" aria-label="Message us">
@@ -544,5 +645,7 @@
   <script src="../app.js"></script>
   <script src="visa.js"></script>
   <script src="book.js"></script>
+  <script src="when.js"></script>
+  <script src="checklist.js"></script>
 </body>
 </html>

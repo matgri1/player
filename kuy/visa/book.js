@@ -435,10 +435,14 @@
       tb.tabIndex = on ? 0 : -1;
       $(tb.getAttribute("aria-controls")).hidden = !on;
       if (on && focus) tb.focus();
+      if (on) { const bar = tb.parentNode; bar.scrollTo({ left: tb.offsetLeft - (bar.clientWidth - tb.offsetWidth) / 2, behavior: "smooth" }); }
     });
-    if (name === "book") { show(); if (location.hash !== "#book") history.replaceState(null, "", "#book"); }
-    else if (location.hash === "#book") history.replaceState(null, "", location.pathname + location.search);
+    if (name === "book") show();
+    const want = name === "overview" ? "" : "#" + name;
+    if (location.hash !== want) history.replaceState(null, "", want || location.pathname + location.search);
+    document.dispatchEvent(new CustomEvent("kuy:tab", { detail: name }));
   }
+  const tabFromHash = () => { const h = location.hash.slice(1); return tabs.some((t) => t.dataset.tab === h) ? h : "overview"; };
   tabs.forEach((tb, i) => {
     tb.addEventListener("click", () => openTab(tb.dataset.tab));
     tb.addEventListener("keydown", (e) => {
@@ -451,11 +455,24 @@
     e.preventDefault(); openTab(a.dataset.openTab);
     document.querySelector(".tabs-bar").scrollIntoView({ block: "start", behavior: "smooth" });
   }));
-  window.addEventListener("hashchange", () => openTab(location.hash === "#book" ? "book" : "overview"));
+  window.addEventListener("hashchange", () => openTab(tabFromHash()));
+
+  // Lets other tabs start a booking with a destination / departure / date already chosen
+  window.KUY_BOOK = {
+    start(opts) {
+      st.dest = opts.dest || st.dest;
+      if (opts.depId) { st.when = String(opts.depId); }
+      else if (opts.date) { st.when = "request"; st.reqDate = opts.date; }
+      st.step = st.dest ? 2 : 1;
+      save();
+      openTab("book");
+      document.querySelector(".tabs-bar").scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  };
 
   // ---------------- Start ----------------
   document.addEventListener("kuy:lang", () => { show(); });
-  if (location.hash === "#book") openTab("book");
+  if (tabFromHash() !== "overview") openTab(tabFromHash());
   (window.KUY_VISA_DATA || Promise.resolve({})).then((d) => {
     if (d && Array.isArray(d.departures)) departures = d.departures.filter((x) => x && /^\d{4}-\d{2}-\d{2}$/.test(x.departure_date || "")).sort((a, b) => a.departure_date.localeCompare(b.departure_date));
     if (d && d.fees) VISA_TYPES.forEach((v) => { if (d.fees[v] && Number.isFinite(Number(d.fees[v].fee))) fees[v] = Number(d.fees[v].fee); });

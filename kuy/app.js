@@ -28,6 +28,19 @@
   const SITE_URL = "https://matgri1.github.io/player/kuy/";
 
   // ============================================================
+  //  VISA REMINDER BOT (test) — leave empty until the test bot is ready.
+  //  username: bot username without @, e.g. "kuy_reminder_test_bot"
+  //  api:      optional HTTPS endpoint of that bot's server (not used yet)
+  //  The site opens  https://t.me/<username>?start=visa_YYYYMMDD
+  //  where YYYYMMDD is the last day of stay; the bot should parse it
+  //  and schedule reminders (e.g. 14, 7 and 3 days before).
+  // ============================================================
+  const REMINDER_BOT = {
+    username: "",
+    api: ""
+  };
+
+  // ============================================================
   //  SUBSITES — where the service buttons lead.
   //  Relative paths = pages inside this site.
   //  To connect a separate site, put its full address instead,
@@ -222,6 +235,7 @@
     cleanCode,
     shareLink,
     visaApi: VISA_APP.api,
+    reminderBot: REMINDER_BOT,
     visaLink,
     hasContact: (type) => !!CONTACTS[type],
     quyCode,
