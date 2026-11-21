@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kuy — Services in Quy Nhon, Vietnam</title>
-  <meta name="description" content="Kuy is a local ecosystem of services in Quy Nhon, Vietnam: visa runs, currency exchange, Russian cuisine, tours and a marketplace.">
-  <meta name="theme-color" content="#0b3a53">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b3a53'/%3E%3Ccircle cx='44' cy='20' r='8' fill='%23ff8a5b'/%3E%3Cpath d='M8 44c8-6 16-6 24 0s16 6 24 0v12H8z' fill='%2337c3c9'/%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Kuy — Your local helper in Quy Nhon, Vietnam</title>
+  <meta name="description" content="Tours, visa runs, currency exchange and more in Quy Nhon, Vietnam. A friendly English-speaking local team. Just send us a message.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231d64f2'/%3E%3Ccircle cx='44' cy='20' r='8' fill='%23ff8a5b'/%3E%3Cpath d='M8 44c8-6 16-6 24 0s16 6 24 0v12H8z' fill='%2337c3c9'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600;700&display=swap&subset=cyrillic,vietnamese" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,18 +17,16 @@
   <!-- ========== HEADER ========== -->
   <header class="header" id="top">
     <div class="container header__inner">
-      <a href="#top" class="logo" aria-label="Kuy">
-        <span class="logo__mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="currentColor"/><circle cx="44" cy="20" r="8" fill="#ff8a5b"/><path d="M8 44c8-6 16-6 24 0s16 6 24 0v12H8z" fill="#37c3c9"/></svg>
-        </span>
-        <span class="logo__text">KUY</span>
+      <a href="#top" class="logo" aria-label="Kuy home">
+        <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#1d64f2"/><circle cx="44" cy="20" r="8" fill="#ff8a5b"/><path d="M8 44c8-6 16-6 24 0s16 6 24 0v12H8z" fill="#37c3c9"/></svg>
+        <span class="logo__text">Kuy</span>
       </a>
 
       <nav class="nav" id="nav" aria-label="Main">
-        <a href="#about" data-i18n="nav.about">About</a>
         <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#how" data-i18n="nav.how">How it works</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="#about" data-i18n="nav.about">About us</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
       </nav>
 
       <div class="header__actions">
@@ -37,6 +35,7 @@
           <button type="button" class="lang__btn" data-lang="ru">RU</button>
           <button type="button" class="lang__btn" data-lang="vi">VI</button>
         </div>
+        <a href="#contact" class="btn btn--primary btn--sm header__cta" data-link="whatsapp" data-i18n="nav.cta">Message us</a>
         <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">
           <span></span><span></span><span></span>
         </button>
@@ -47,43 +46,168 @@
   <main>
     <!-- ========== HERO ========== -->
     <section class="hero">
-      <div class="hero__bg" aria-hidden="true">
-        <svg class="hero__waves" viewBox="0 0 1440 220" preserveAspectRatio="none">
-          <path d="M0 120c120-40 240-40 360 0s240 40 360 0 240-40 360 0 240 40 360 0v100H0z" fill="rgba(55,195,201,.18)"/>
-          <path d="M0 160c120-30 240-30 360 0s240 30 360 0 240-30 360 0 240 30 360 0v60H0z" fill="var(--bg)"/>
-        </svg>
-      </div>
-
       <div class="container hero__inner">
         <div class="hero__content">
-          <p class="eyebrow eyebrow--light" data-i18n="hero.eyebrow">Quy Nhon · Vietnam</p>
-          <h1 class="hero__title" data-i18n="hero.title">Everything you need in Quy Nhon — in one place</h1>
-          <p class="hero__lead" data-i18n="hero.lead">Kuy is a local ecosystem of services for travelers and expats: visa runs, currency exchange, Russian cuisine, tours and, soon, a marketplace. One team, one contact, no hassle.</p>
+          <p class="hero__place">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="#ff8a5b"/><circle cx="12" cy="10" r="2.6" fill="#fff"/></svg>
+            <span data-i18n="hero.place">Quy Nhon, Vietnam</span>
+            <span class="hero__say" data-i18n="hero.say">say “kwee-nyon”</span>
+          </p>
+          <h1 class="hero__title" data-i18n="hero.title">Your local helper in Quy Nhon</h1>
+          <p class="hero__lead" data-i18n="hero.lead">Tours, visa runs, currency exchange and more, handled by a friendly English-speaking team. Just send us a message and we take care of the rest.</p>
           <div class="hero__cta">
-            <a href="#services" class="btn btn--primary" data-i18n="hero.ctaPrimary">Explore services</a>
-            <a href="#contact" class="btn btn--ghost" data-i18n="hero.ctaSecondary">Message us</a>
+            <a href="#contact" class="btn btn--whatsapp btn--lg" data-link="whatsapp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3 1 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg>
+              <span data-i18n="hero.ctaPrimary">Message us on WhatsApp</span>
+            </a>
+            <a href="#services" class="btn btn--light btn--lg" data-i18n="hero.ctaSecondary">See all services</a>
           </div>
-          <ul class="chips">
-            <li data-i18n="hero.chip1">Local team</li>
-            <li>EN · RU · VI</li>
-            <li data-i18n="hero.chip3">Honest prices</li>
+          <ul class="checks">
+            <li data-i18n="hero.check1">English-speaking team</li>
+            <li data-i18n="hero.check2">Clear prices, no hidden fees</li>
+            <li data-i18n="hero.check3">Locals who live in Quy Nhon</li>
           </ul>
         </div>
 
-        <!-- Ecosystem orbit -->
-        <div class="orbit" aria-hidden="true">
-          <div class="orbit__ring orbit__ring--outer"></div>
-          <div class="orbit__ring orbit__ring--inner"></div>
-          <div class="orbit__core">
-            <span>KUY</span>
-            <small data-i18n="hero.core">ecosystem</small>
+        <!-- Example chat: shows how simple it is -->
+        <div class="chat" aria-label="Example chat">
+          <div class="chat__head">
+            <svg class="chat__avatar" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="32" fill="#1d64f2"/><circle cx="44" cy="22" r="7" fill="#ff8a5b"/><path d="M10 42c7-5 15-5 22 0s15 5 22 0v8a22 22 0 0 1-44 0z" fill="#37c3c9"/></svg>
+            <div>
+              <strong>Kuy</strong>
+              <small data-i18n="chat.sub">Quy Nhon, Vietnam</small>
+            </div>
+            <span class="chat__tag" data-i18n="chat.tag">Example</span>
           </div>
-          <div class="orbit__item" style="--a:-90deg"><span class="orbit__icon">🛂</span><span data-i18n="services.visa.title">Visa run</span></div>
-          <div class="orbit__item" style="--a:-18deg"><span class="orbit__icon">💱</span><span data-i18n="services.exchange.short">Exchange</span></div>
-          <div class="orbit__item" style="--a:54deg"><span class="orbit__icon">🥟</span><span data-i18n="services.food.short">Cuisine</span></div>
-          <div class="orbit__item" style="--a:126deg"><span class="orbit__icon">🏝️</span><span data-i18n="services.tours.title">Tours</span></div>
-          <div class="orbit__item orbit__item--soon" style="--a:198deg"><span class="orbit__icon">🛍️</span><span data-i18n="services.market.title">Marketplace</span></div>
+          <div class="chat__body">
+            <p class="bubble bubble--me" data-i18n="chat.m1">Hi! Can you book a tour to Ky Co beach for 2 people on Saturday?</p>
+            <p class="bubble bubble--them" data-i18n="chat.m2">Hi! Sure 🙂 We’ll pick you up from your hotel. What time works for you?</p>
+            <p class="bubble bubble--me" data-i18n="chat.m3">8 AM works 👍</p>
+            <p class="bubble bubble--them" data-i18n="chat.m4">Done! You’re booked for Saturday at 8 AM ✅</p>
+          </div>
+          <div class="chat__input" aria-hidden="true">
+            <span data-i18n="chat.placeholder">Type a message…</span>
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 20.5 21 12 3 3.5 3 10l12 2-12 2z"/></svg>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICES ========== -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title" data-i18n="services.title">What we can help you with</h2>
+          <p class="section__lead" data-i18n="services.lead">Pick a service and message us. We reply in plain English.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card card--wide">
+            <span class="card__icon card__icon--sand">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11"/><path d="M12 11c-1.5-3-4.5-4-8-3 2 .5 4 2 5 4"/><path d="M12 11c1.5-3 4.5-4 8-3-2 .5-4 2-5 4"/><path d="M12 11c0-3.5-1.5-6-4-7.5"/><path d="M3 21h18"/></svg>
+            </span>
+            <div class="card__body">
+              <h3 class="card__title" data-i18n="services.tours.title">Tours & day trips</h3>
+              <p class="card__text" data-i18n="services.tours.text">See the best of Quy Nhon with a guide who speaks English. Beaches, islands, ancient towers and waterfalls. Hotel pickup included.</p>
+              <ul class="tags">
+                <li data-i18n="services.tours.t1">Ky Co beach</li>
+                <li data-i18n="services.tours.t2">Eo Gio</li>
+                <li data-i18n="services.tours.t3">Cham towers</li>
+                <li data-i18n="services.tours.t4">Islands & snorkeling</li>
+              </ul>
+              <a href="#contact" class="btn btn--primary card__btn" data-link="whatsapp" data-msg="msg.tours" data-i18n="services.tours.cta">Ask about tours</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card__icon card__icon--blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16h6"/></svg>
+            </span>
+            <div class="card__body">
+              <h3 class="card__title" data-i18n="services.visa.title">Visa run</h3>
+              <p class="card__text" data-i18n="services.visa.text">Need to stay in Vietnam longer? We plan the trip to the border, arrange transport and bring you back to Quy Nhon.</p>
+              <ul class="tags">
+                <li data-i18n="services.visa.t1">Trip planned for you</li>
+                <li data-i18n="services.visa.t2">Transport</li>
+                <li data-i18n="services.visa.t3">Paperwork help</li>
+              </ul>
+              <a href="#contact" class="btn btn--primary card__btn" data-link="whatsapp" data-msg="msg.visa" data-i18n="services.visa.cta">Ask about a visa run</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card__icon card__icon--green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h11l-3-3"/><path d="M17 17H6l3 3"/><circle cx="12" cy="12" r="2"/></svg>
+            </span>
+            <div class="card__body">
+              <h3 class="card__title" data-i18n="services.exchange.title">Currency exchange</h3>
+              <p class="card__text" data-i18n="services.exchange.text">Swap US dollars for Vietnamese dong at a good rate. Fast, safe and no bank lines.</p>
+              <ul class="tags">
+                <li>USD → VND</li>
+                <li>RUB → VND</li>
+                <li data-i18n="services.exchange.t3">Good rate</li>
+              </ul>
+              <a href="#contact" class="btn btn--primary card__btn" data-link="whatsapp" data-msg="msg.exchange" data-i18n="services.exchange.cta">Check today’s rate</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card__icon card__icon--coral">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M8 7c0-1.5 1-2 1-3.5M12 7c0-1.5 1-2 1-3.5M16 7c0-1.5 1-2 1-3.5"/></svg>
+            </span>
+            <div class="card__body">
+              <h3 class="card__title" data-i18n="services.food.title">Homemade Russian food</h3>
+              <p class="card__text" data-i18n="services.food.text">Hearty home cooking when you want a break from pho. Order by message.</p>
+              <ul class="tags">
+                <li data-i18n="services.food.t1">Borscht</li>
+                <li data-i18n="services.food.t2">Dumplings (pelmeni)</li>
+                <li data-i18n="services.food.t3">Crepes (blini)</li>
+              </ul>
+              <a href="#contact" class="btn btn--primary card__btn" data-link="whatsapp" data-msg="msg.food" data-i18n="services.food.cta">See the menu</a>
+            </div>
+          </article>
+
+          <article class="card card--soon">
+            <span class="card__icon card__icon--violet">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+            </span>
+            <div class="card__body">
+              <h3 class="card__title"><span data-i18n="services.market.title">Marketplace</span> <span class="badge" data-i18n="badge.soon">Coming soon</span></h3>
+              <p class="card__text" data-i18n="services.market.text">Buy, sell and rent things from people in Quy Nhon, all in one place.</p>
+              <ul class="tags">
+                <li data-i18n="services.market.t1">Buy & sell</li>
+                <li data-i18n="services.market.t2">Rentals</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section class="section section--white" id="how">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title" data-i18n="how.title">How it works</h2>
+          <p class="section__lead" data-i18n="how.lead">No forms, no apps to install. It takes about a minute.</p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num">1</span>
+            <h3 data-i18n="how.s1.title">Send us a message</h3>
+            <p data-i18n="how.s1.text">On WhatsApp or Facebook Messenger. Tell us what you need and your dates.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">2</span>
+            <h3 data-i18n="how.s2.title">Get a clear price</h3>
+            <p data-i18n="how.s2.text">We confirm the details and tell you the full price up front.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">3</span>
+            <h3 data-i18n="how.s3.title">We handle the rest</h3>
+            <p data-i18n="how.s3.text">Relax and enjoy Vietnam. We’ll keep you posted along the way.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -91,19 +215,18 @@
     <section class="section" id="about">
       <div class="container about">
         <div class="about__text">
-          <p class="eyebrow" data-i18n="about.eyebrow">About us</p>
-          <h2 class="section__title" data-i18n="about.title">What is Kuy?</h2>
-          <p data-i18n="about.p1">Kuy was born in Quy Nhon. We live here, know the city inside out, and built the services we ourselves were missing when we first arrived.</p>
-          <p data-i18n="about.p2">Instead of hunting for a dozen contacts across group chats, you get one trusted team that takes care of the everyday things — so you can enjoy the sea, the food and the city.</p>
+          <h2 class="section__title" data-i18n="about.title">Who we are</h2>
+          <p data-i18n="about.p1">Kuy is a small local team in Quy Nhon. We moved here, fell in love with the city, and learned the hard way how tricky simple things can be when you don’t speak Vietnamese.</p>
+          <p data-i18n="about.p2">So we made one place for the things travelers and expats need most. One team, one chat, and someone you can actually reach.</p>
         </div>
         <ul class="pillars">
           <li class="pillar">
             <span class="pillar__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
             </span>
             <div>
-              <h3 data-i18n="about.pillar1.title">Truly local</h3>
-              <p data-i18n="about.pillar1.text">We live in Quy Nhon and know every corner of it.</p>
+              <h3 data-i18n="about.pillar1.title">We speak your language</h3>
+              <p data-i18n="about.pillar1.text">English, Russian and Vietnamese.</p>
             </div>
           </li>
           <li class="pillar">
@@ -111,110 +234,51 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
             </span>
             <div>
-              <h3 data-i18n="about.pillar2.title">Trusted</h3>
-              <p data-i18n="about.pillar2.text">Clear terms, no hidden fees, every deal transparent.</p>
+              <h3 data-i18n="about.pillar2.title">No surprises</h3>
+              <p data-i18n="about.pillar2.text">You get the full price before you say yes.</p>
             </div>
           </li>
           <li class="pillar">
             <span class="pillar__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
             </span>
             <div>
-              <h3 data-i18n="about.pillar3.title">In your language</h3>
-              <p data-i18n="about.pillar3.text">Support in English, Russian and Vietnamese.</p>
+              <h3 data-i18n="about.pillar3.title">Right here in Quy Nhon</h3>
+              <p data-i18n="about.pillar3.text">We live here and know the city well.</p>
             </div>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- ========== SERVICES ========== -->
-    <section class="section section--tinted" id="services">
-      <div class="container">
+    <!-- ========== FAQ ========== -->
+    <section class="section section--white" id="faq">
+      <div class="container faq">
         <div class="section__head">
-          <p class="eyebrow" data-i18n="services.eyebrow">Services</p>
-          <h2 class="section__title" data-i18n="services.title">What we do</h2>
-          <p class="section__lead" data-i18n="services.lead">We start with the essentials. The ecosystem will keep growing.</p>
+          <h2 class="section__title" data-i18n="faq.title">Questions? We’ve got answers</h2>
         </div>
-
-        <div class="cards">
-          <article class="card">
-            <div class="card__top">
-              <span class="card__icon card__icon--blue">🛂</span>
-              <span class="badge badge--live" data-i18n="badge.live">Available</span>
-            </div>
-            <h3 class="card__title" data-i18n="services.visa.title">Visa run</h3>
-            <p class="card__text" data-i18n="services.visa.text">Extend your stay without stress: we plan the route, arrange transport to the border and bring you back to Quy Nhon.</p>
-            <a href="#contact" class="card__link" data-i18n="card.more">Ask about it</a>
-          </article>
-
-          <article class="card">
-            <div class="card__top">
-              <span class="card__icon card__icon--green">💱</span>
-              <span class="badge badge--live" data-i18n="badge.live">Available</span>
-            </div>
-            <h3 class="card__title" data-i18n="services.exchange.title">Currency exchange</h3>
-            <p class="card__text" data-i18n="services.exchange.text">Exchange rubles, dollars and other currencies to Vietnamese dong at a good rate — fast and safe.</p>
-            <a href="#contact" class="card__link" data-i18n="card.more">Ask about it</a>
-          </article>
-
-          <article class="card">
-            <div class="card__top">
-              <span class="card__icon card__icon--coral">🥟</span>
-              <span class="badge badge--live" data-i18n="badge.live">Available</span>
-            </div>
-            <h3 class="card__title" data-i18n="services.food.title">Russian cuisine</h3>
-            <p class="card__text" data-i18n="services.food.text">Homemade food that tastes like home: borscht, pelmeni, blini and more. Order easily via messenger.</p>
-            <a href="#contact" class="card__link" data-i18n="card.more">Ask about it</a>
-          </article>
-
-          <article class="card">
-            <div class="card__top">
-              <span class="card__icon card__icon--sand">🏝️</span>
-              <span class="badge badge--live" data-i18n="badge.live">Available</span>
-            </div>
-            <h3 class="card__title" data-i18n="services.tours.title">Tours</h3>
-            <p class="card__text" data-i18n="services.tours.text">Discover Quy Nhon and beyond: Ky Co beach, Eo Gio, ancient Cham towers, islands and waterfalls — with a guide who speaks your language.</p>
-            <a href="#contact" class="card__link" data-i18n="card.more">Ask about it</a>
-          </article>
-
-          <article class="card card--soon">
-            <div class="card__top">
-              <span class="card__icon card__icon--violet">🛍️</span>
-              <span class="badge badge--soon" data-i18n="badge.soon">Coming soon</span>
-            </div>
-            <h3 class="card__title" data-i18n="services.market.title">Marketplace</h3>
-            <p class="card__text" data-i18n="services.market.text">Buy, sell, rent and find anything within the Quy Nhon community — all in one place.</p>
-            <span class="card__link card__link--muted" data-i18n="card.soon">Stay tuned</span>
-          </article>
+        <div class="faq__list">
+          <details class="faq__item" open>
+            <summary data-i18n="faq.q1">Where is Quy Nhon?</summary>
+            <p data-i18n="faq.a1">A beach city on Vietnam’s south-central coast, between Da Nang and Nha Trang. The nearest airport is Phu Cat (UIH), about 40 minutes from town.</p>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="faq.q2">How do I book?</summary>
+            <p data-i18n="faq.a2">Just message us on WhatsApp or Facebook Messenger. Tell us what you need and your dates, and we’ll reply with the details and price.</p>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="faq.q3">What is a visa run?</summary>
+            <p data-i18n="faq.a3">A short trip out of Vietnam and back to get a new entry, so you can stay longer. Most US travelers come on an e-visa for up to 90 days. Rules change, so message us and we’ll check what works for you.</p>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="faq.q4">Can I exchange US dollars?</summary>
+            <p data-i18n="faq.a4">Yes. We exchange US dollars and other currencies to Vietnamese dong. Message us for today’s rate.</p>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="faq.q5">Does your team speak English?</summary>
+            <p data-i18n="faq.a5">Yes. We speak English, Russian and Vietnamese.</p>
+          </details>
         </div>
-      </div>
-    </section>
-
-    <!-- ========== HOW IT WORKS ========== -->
-    <section class="section" id="how">
-      <div class="container">
-        <div class="section__head">
-          <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
-          <h2 class="section__title" data-i18n="how.title">Three simple steps</h2>
-        </div>
-        <ol class="steps">
-          <li class="step">
-            <span class="step__num">1</span>
-            <h3 data-i18n="how.s1.title">Choose a service</h3>
-            <p data-i18n="how.s1.text">Pick what you need — from currency exchange to a tour.</p>
-          </li>
-          <li class="step">
-            <span class="step__num">2</span>
-            <h3 data-i18n="how.s2.title">Message us</h3>
-            <p data-i18n="how.s2.text">Write to us on Telegram, WhatsApp or Zalo in the language you prefer.</p>
-          </li>
-          <li class="step">
-            <span class="step__num">3</span>
-            <h3 data-i18n="how.s3.title">We handle the rest</h3>
-            <p data-i18n="how.s3.text">We confirm the details and get everything done quickly.</p>
-          </li>
-        </ol>
       </div>
     </section>
 
@@ -222,33 +286,46 @@
     <section class="section" id="contact">
       <div class="container">
         <div class="contact">
-          <div class="contact__text">
-            <h2 class="section__title section__title--light" data-i18n="contact.title">Got a question? Message us</h2>
-            <p data-i18n="contact.lead">We reply in English, Russian and Vietnamese.</p>
-          </div>
+          <h2 class="contact__title" data-i18n="contact.title">Ready? Send us a message</h2>
+          <p class="contact__lead" data-i18n="contact.lead">Tell us what you need. We’ll get back to you with details and a price.</p>
           <div class="contact__buttons">
-            <!-- TODO: replace # with real links -->
-            <a href="#contact" class="btn btn--messenger">Telegram</a>
-            <a href="#contact" class="btn btn--messenger">WhatsApp</a>
-            <a href="#contact" class="btn btn--messenger">Zalo</a>
+            <a href="#contact" class="btn btn--whatsapp btn--lg" data-link="whatsapp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+              WhatsApp
+            </a>
+            <a href="#contact" class="btn btn--messenger btn--lg" data-link="messenger">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C6.4 2 2 6.1 2 11.7c0 2.9 1.2 5.5 3.2 7.3V22l2.9-1.6c1.2.3 2.5.5 3.9.5 5.6 0 10-4.1 10-9.7S17.6 2 12 2zm1 12.6-2.5-2.7-5 2.7 5.5-5.8 2.6 2.7 4.9-2.7z"/></svg>
+              Messenger
+            </a>
           </div>
+          <p class="contact__more"><span data-i18n="contact.more">Also on</span> <a href="#contact" data-link="telegram">Telegram</a> · <a href="#contact" data-link="zalo">Zalo</a></p>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Floating chat button -->
+  <a href="#contact" class="fab" data-link="whatsapp" aria-label="Message us">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+    <span data-i18n="nav.cta">Message us</span>
+  </a>
+
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container footer__inner">
       <div>
-        <a href="#top" class="logo logo--footer">
-          <span class="logo__mark" aria-hidden="true">
-            <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="currentColor"/><circle cx="44" cy="20" r="8" fill="#ff8a5b"/><path d="M8 44c8-6 16-6 24 0s16 6 24 0v12H8z" fill="#37c3c9"/></svg>
-          </span>
-          <span class="logo__text">KUY</span>
+        <a href="#top" class="logo">
+          <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#1d64f2"/><circle cx="44" cy="20" r="8" fill="#ff8a5b"/><path d="M8 44c8-6 16-6 24 0s16 6 24 0v12H8z" fill="#37c3c9"/></svg>
+          <span class="logo__text">Kuy</span>
         </a>
-        <p class="footer__tagline" data-i18n="footer.tagline">Ecosystem of services in Quy Nhon, Vietnam.</p>
+        <p class="footer__tagline" data-i18n="footer.tagline">Your local helper in Quy Nhon, Vietnam.</p>
       </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#how" data-i18n="nav.how">How it works</a>
+        <a href="#about" data-i18n="nav.about">About us</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </nav>
       <p class="footer__copy">© <span id="year">2026</span> Kuy. <span data-i18n="footer.rights">All rights reserved.</span></p>
     </div>
   </footer>
