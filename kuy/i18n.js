@@ -310,6 +310,20 @@ window.KUY_I18N = {
 
 // ---------- Subpages: visa / exchange / food ----------
 Object.assign(window.KUY_I18N.en, {
+  "food.add": "Add to order",
+  "food.less": "Remove one",
+  "food.more": "Add one",
+  "food.inOrder": "Your order",
+  "food.send": "Send order",
+  "food.clear": "Clear",
+  "msg.foodOrder": "Hi Kuy! I'd like to order:\n{items}",
+  "services.tours.hint": "Tap the places you want to see:",
+  "msg.toursPick": "Hi Kuy! I'm interested in a tour: {places}. Can you tell me more?",
+  "clock.now": "{time} in Quy Nhon right now",
+  "clock.ahead": "{n} ahead of you",
+  "clock.behind": "{n} behind you",
+  "clock.same": "same time as you",
+  "chat.replay": "Replay",
   "page.back": "← All services",
 
   "visa.metaTitle": "Visa run — Kuy, Quy Nhon",
@@ -352,11 +366,25 @@ Object.assign(window.KUY_I18N.en, {
   "food.lead": "Cooked at home in Quy Nhon. Pick a dish and order by message.",
   "food.order": "Order",
   "food.howTitle": "How to order",
-  "food.how": "Tap “Order” on any dish and tell us how many portions you’d like and when.",
+  "food.how": "Add dishes to your order, then tap “Send order”. We’ll confirm the time and details in chat.",
   "msg.foodItem": "Hi Kuy! I'd like to order: {item}."
 });
 
 Object.assign(window.KUY_I18N.ru, {
+  "food.add": "В заказ",
+  "food.less": "Убрать одну",
+  "food.more": "Добавить ещё",
+  "food.inOrder": "Ваш заказ",
+  "food.send": "Отправить заказ",
+  "food.clear": "Очистить",
+  "msg.foodOrder": "Привет, Kuy! Хочу заказать:\n{items}",
+  "services.tours.hint": "Отметьте места, которые хотите посетить:",
+  "msg.toursPick": "Привет, Kuy! Интересует тур: {places}. Расскажете подробнее?",
+  "clock.now": "В Куйньоне сейчас {time}",
+  "clock.ahead": "на {n} впереди вас",
+  "clock.behind": "на {n} позади вас",
+  "clock.same": "то же время, что у вас",
+  "chat.replay": "Повторить",
   "page.back": "← Все услуги",
 
   "visa.metaTitle": "Визаран — Kuy, Куйньон",
@@ -399,11 +427,25 @@ Object.assign(window.KUY_I18N.ru, {
   "food.lead": "Готовим дома, в Куйньоне. Выберите блюдо и закажите через сообщение.",
   "food.order": "Заказать",
   "food.howTitle": "Как заказать",
-  "food.how": "Нажмите «Заказать» у любого блюда и напишите, сколько порций и к какому времени.",
+  "food.how": "Добавьте блюда в заказ и нажмите «Отправить заказ». Время и детали уточним в чате.",
   "msg.foodItem": "Привет, Kuy! Хочу заказать: {item}."
 });
 
 Object.assign(window.KUY_I18N.vi, {
+  "food.add": "Thêm vào đơn",
+  "food.less": "Bớt một",
+  "food.more": "Thêm một",
+  "food.inOrder": "Đơn của bạn",
+  "food.send": "Gửi đơn",
+  "food.clear": "Xóa",
+  "msg.foodOrder": "Chào Kuy! Mình muốn đặt:\n{items}",
+  "services.tours.hint": "Chọn những nơi bạn muốn đến:",
+  "msg.toursPick": "Chào Kuy! Mình quan tâm tour: {places}. Bạn tư vấn thêm nhé?",
+  "clock.now": "Bây giờ ở Quy Nhơn là {time}",
+  "clock.ahead": "nhanh hơn bạn {n}",
+  "clock.behind": "chậm hơn bạn {n}",
+  "clock.same": "cùng giờ với bạn",
+  "chat.replay": "Xem lại",
   "page.back": "← Tất cả dịch vụ",
 
   "visa.metaTitle": "Visa run — Kuy, Quy Nhơn",
@@ -446,6 +488,6 @@ Object.assign(window.KUY_I18N.vi, {
   "food.lead": "Nấu tại nhà ở Quy Nhơn. Chọn món và đặt qua tin nhắn.",
   "food.order": "Đặt món",
   "food.howTitle": "Cách đặt món",
-  "food.how": "Bấm “Đặt món” ở món bạn thích và cho chúng tôi biết số phần và thời gian.",
+  "food.how": "Thêm món vào đơn rồi bấm “Gửi đơn”. Chúng tôi sẽ xác nhận thời gian và chi tiết qua tin nhắn.",
   "msg.foodItem": "Chào Kuy! Mình muốn đặt: {item}."
 });

@@ -67,6 +67,11 @@
             <li data-i18n="hero.check2">Clear prices, no hidden fees</li>
             <li data-i18n="hero.check3">Locals who live in Quy Nhon</li>
           </ul>
+          <p class="clock" id="clock">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span class="clock__time"></span>
+            <span class="clock__rel"></span>
+          </p>
         </div>
 
         <!-- Example chat: shows how simple it is -->
@@ -78,6 +83,7 @@
               <small data-i18n="chat.sub">Quy Nhon, Vietnam</small>
             </div>
             <span class="chat__tag" data-i18n="chat.tag">Example</span>
+            <button type="button" class="chat__replay" id="chatReplay" aria-label="Replay chat" data-i18n-label="chat.replay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
           </div>
           <div class="chat__body">
             <p class="bubble bubble--me" data-i18n="chat.m1">Hi! Can you book a tour to Ky Co beach for 2 people on Saturday?</p>
@@ -109,13 +115,14 @@
             <div class="card__body">
               <h3 class="card__title" data-i18n="services.tours.title">Tours & day trips</h3>
               <p class="card__text" data-i18n="services.tours.text">See the best of Quy Nhon with a guide who speaks English. Beaches, islands, ancient towers and waterfalls. Hotel pickup included.</p>
-              <ul class="tags">
-                <li data-i18n="services.tours.t1">Ky Co beach</li>
-                <li data-i18n="services.tours.t2">Eo Gio</li>
-                <li data-i18n="services.tours.t3">Cham towers</li>
-                <li data-i18n="services.tours.t4">Islands & snorkeling</li>
-              </ul>
-              <a href="#contact" class="btn btn--primary card__btn" data-link="whatsapp" data-msg="msg.tours" data-i18n="services.tours.cta">Ask about tours</a>
+              <p class="picks__hint" data-i18n="services.tours.hint">Tap the places you want to see:</p>
+              <div class="picks" role="group" aria-label="Places">
+                <button type="button" class="pick" aria-pressed="false" data-i18n="services.tours.t1">Ky Co beach</button>
+                <button type="button" class="pick" aria-pressed="false" data-i18n="services.tours.t2">Eo Gio</button>
+                <button type="button" class="pick" aria-pressed="false" data-i18n="services.tours.t3">Cham towers</button>
+                <button type="button" class="pick" aria-pressed="false" data-i18n="services.tours.t4">Islands & snorkeling</button>
+              </div>
+              <a href="#contact" class="btn btn--primary card__btn" id="tourCta" data-link="whatsapp" data-msg="msg.tours"><span data-i18n="services.tours.cta">Ask about tours</span><span id="tourCount"></span></a>
             </div>
           </article>
 
@@ -332,5 +339,6 @@
 
   <script src="i18n.js"></script>
   <script src="app.js"></script>
+  <script src="home.js"></script>
 </body>
 </html>

@@ -91,6 +91,9 @@
       const value = t(el.getAttribute("data-i18n"));
       if (value !== undefined) el.textContent = value;
     });
+    document.querySelectorAll("[data-i18n-label]").forEach((el) => {
+      el.setAttribute("aria-label", t(el.getAttribute("data-i18n-label")));
+    });
     document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
       el.placeholder = t(el.getAttribute("data-i18n-placeholder"));
     });
