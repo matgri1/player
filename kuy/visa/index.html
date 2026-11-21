@@ -49,33 +49,160 @@
         <div class="page-hero__row">
           <span class="card__icon card__icon--blue page-hero__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16h6"/></svg></span>
           <div class="page-hero__text">
-            <h1 class="page-hero__title"><span data-i18n="visa.title"></span> <span class="badge" data-i18n="badge.soon">Coming soon</span></h1>
-            <p class="page-hero__lead" data-i18n="visa.lead"></p>
+            <h1 class="page-hero__title" data-i18n="vr.title">Visa runs from Quy Nhon</h1>
+            <p class="page-hero__lead" data-i18n="vr.lead"></p>
+            <div class="vr-cta">
+              <a href="#" class="btn btn--telegram btn--lg" data-visa="bot"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 3.6 2.9 10.8c-1.2.5-1.2 1.9 0 2.3l4.5 1.4 1.7 5.4c.3.9 1.4 1.1 2.1.5l2.6-2.4 4.9 3.6c.9.7 2.2.2 2.4-.9L23.9 5.5c.3-1.4-1.1-2.5-2.5-1.9zM9.9 14.4l-.4 3.7-1.4-4.6 10.4-6.8z"/></svg><span data-i18n="vr.ctaBot">Book in Telegram</span></a>
+              <a href="#" class="btn btn--light btn--lg" data-visa="web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span data-i18n="vr.ctaWeb">Book on the website</span></a>
+            </div>
+            <p class="vr-note" data-i18n="vr.ruOnly"></p>
+            <p class="vr-ref" id="vrRef" hidden></p>
           </div>
         </div>
       </div>
     </section>
+
     <section class="section section--tight">
-      <div class="container stub">
-        <div class="stub__card">
-          <h2 class="stub__title" data-i18n="visa.soonTitle"></h2>
-          <p class="stub__text" data-i18n="visa.soonText"></p>
-          <a href="../index.html#contact" class="btn btn--channel btn--lg" data-link="primary" data-msg="msg.visa"><svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><svg class="ico-tg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 3.6 2.9 10.8c-1.2.5-1.2 1.9 0 2.3l4.5 1.4 1.7 5.4c.3.9 1.4 1.1 2.1.5l2.6-2.4 4.9 3.6c.9.7 2.2.2 2.4-.9L23.9 5.5c.3-1.4-1.1-2.5-2.5-1.9zM9.9 14.4l-.4 3.7-1.4-4.6 10.4-6.8z"/></svg><span data-i18n="visa.cta">Plan my visa run</span></a>
+      <div class="container vr">
+
+        <!-- Routes -->
+        <div class="vr-block">
+          <h2 class="vr-h2" data-i18n="vr.routesTitle">Where we go</h2>
+          <div class="routes">
+            <article class="route">
+              <span class="route__flag" aria-hidden="true">🇱🇦</span>
+              <div>
+                <h3 class="route__name" data-i18n="vr.laos">Laos · Bo Y border</h3>
+                <p class="route__meta" data-i18n="vr.laosMeta">1 day · early morning departure</p>
+                <p class="route__text" data-i18n="vr.laosText"></p>
+              </div>
+            </article>
+            <article class="route">
+              <span class="route__flag" aria-hidden="true">🇰🇭</span>
+              <div>
+                <h3 class="route__name" data-i18n="vr.cambodia">Cambodia · Le Thanh border</h3>
+                <p class="route__meta" data-i18n="vr.cambodiaMeta">Visa on arrival · back by evening</p>
+                <p class="route__text" data-i18n="vr.cambodiaText"></p>
+              </div>
+            </article>
+          </div>
+          <ul class="included">
+            <li data-i18n="vr.inc1">Round trip from your hotel in Quy Nhon</li>
+            <li data-i18n="vr.inc2">Air-conditioned transport, drinking water and rest stops</li>
+            <li data-i18n="vr.inc3">An escort who helps you at passport control</li>
+            <li data-i18n="vr.inc4">No prepayment. You pay when you board.</li>
+          </ul>
         </div>
-        <ul class="pillars">
-          <li class="pillar">
-            <span class="pillar__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg></span>
-            <div><h3 data-i18n="visa.f1t"></h3><p data-i18n="visa.f1"></p></div>
+
+        <!-- Live schedule -->
+        <div class="vr-block">
+          <div class="vr-head">
+            <h2 class="vr-h2" data-i18n="vr.schedTitle">Upcoming departures</h2>
+            <span class="live" id="liveBadge" hidden><span class="live__dot"></span><span data-i18n="vr.live">Live</span></span>
+          </div>
+          <div class="sched" id="sched" aria-live="polite">
+            <p class="sched__state" data-i18n="vr.loading">Loading the schedule…</p>
+          </div>
+          <p class="sched__hint" data-i18n="vr.schedHint">Don’t see your date? Request any free day. If enough people join, we open a group.</p>
+        </div>
+
+        <!-- Vietnam visa options -->
+        <div class="vr-block">
+          <h2 class="vr-h2" data-i18n="vr.visasTitle">Your new Vietnam entry</h2>
+          <p class="vr-sub" data-i18n="vr.visasSub">Choose for each passenger when you book.</p>
+          <div class="visas" id="visas">
+            <div class="visa-opt"><strong data-i18n="vr.stamp">Visa-free stamp · 45 days</strong><span class="visa-opt__fee" data-fee="stamp">0 ₫</span><small data-i18n="vr.stampNote">For passports that qualify</small></div>
+            <div class="visa-opt"><strong data-i18n="vr.evisa">E-visa · 90 days</strong><span class="visa-opt__fee" data-fee="evisa90">2,150,000 ₫</span><small data-i18n="vr.evisaNote">We help you apply</small></div>
+            <div class="visa-opt"><strong data-i18n="vr.multi">Multiple-entry visa</strong><span class="visa-opt__fee" data-fee="multivisa">2,800,000 ₫</span><small data-i18n="vr.multiNote">For frequent travelers</small></div>
+          </div>
+        </div>
+
+        <!-- Registration & booking flow -->
+        <div class="vr-block">
+          <h2 class="vr-h2" data-i18n="vr.flowTitle">How booking works, step by step</h2>
+          <ol class="flow">
+          <li class="flow__step">
+            <span class="flow__num">1</span>
+            <div class="flow__body">
+              <h3 data-i18n="vr.s1t"></h3>
+              <p data-i18n="vr.s1"></p>
+            </div>
           </li>
-          <li class="pillar">
-            <span class="pillar__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="11" rx="2"/><path d="M3 11h18"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/></svg></span>
-            <div><h3 data-i18n="visa.f2t"></h3><p data-i18n="visa.f2"></p></div>
+          <li class="flow__step">
+            <span class="flow__num">2</span>
+            <div class="flow__body">
+              <h3 data-i18n="vr.s2t"></h3>
+              <p data-i18n="vr.s2"></p>
+            </div>
           </li>
-          <li class="pillar">
-            <span class="pillar__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 14l3 3 5-5"/></svg></span>
-            <div><h3 data-i18n="visa.f3t"></h3><p data-i18n="visa.f3"></p></div>
+          <li class="flow__step flow__step--key">
+            <span class="flow__num">3</span>
+            <div class="flow__body">
+              <h3 data-i18n="vr.s3t"></h3>
+              <p data-i18n="vr.s3"></p>
+            </div>
           </li>
-        </ul>
+          <li class="flow__step">
+            <span class="flow__num">4</span>
+            <div class="flow__body">
+              <h3 data-i18n="vr.s4t"></h3>
+              <p data-i18n="vr.s4"></p>
+            </div>
+          </li>
+          <li class="flow__step">
+            <span class="flow__num">5</span>
+            <div class="flow__body">
+              <h3 data-i18n="vr.s5t"></h3>
+              <p data-i18n="vr.s5"></p>
+            </div>
+          </li>
+          <li class="flow__step">
+            <span class="flow__num">6</span>
+            <div class="flow__body">
+              <h3 data-i18n="vr.s6t"></h3>
+              <p data-i18n="vr.s6"></p>
+            </div>
+          </li>
+          <li class="flow__step">
+            <span class="flow__num">7</span>
+            <div class="flow__body">
+              <h3 data-i18n="vr.s7t"></h3>
+              <p data-i18n="vr.s7"></p>
+            </div>
+          </li>
+          </ol>
+          <div class="tip">
+            <span class="tip__icon" aria-hidden="true">💡</span>
+            <p><strong data-i18n="vr.tipTitle">Before you start:</strong> <span data-i18n="vr.tip"></span></p>
+          </div>
+        </div>
+
+        <!-- QUY Club -->
+        <div class="club">
+          <div class="club__text">
+            <h2 class="club__title" data-i18n="vr.clubTitle">QUY Club: bonuses for trips and friends</h2>
+            <ul class="club__list">
+              <li data-i18n="vr.club1">Earn bonus points for every completed visa run.</li>
+              <li data-i18n="vr.club2">Invite friends with your personal link and earn points after their first trip.</li>
+              <li data-i18n="vr.club3">Use points to pay part of your next trip.</li>
+              <li data-i18n="vr.club4">Get a Telegram reminder before your stay ends.</li>
+            </ul>
+            <p class="club__note" data-i18n="vr.clubNote">Your QUY Club account opens automatically the first time you sign in with Telegram.</p>
+          </div>
+          <a href="#" class="btn btn--telegram btn--lg" data-visa="bot"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 3.6 2.9 10.8c-1.2.5-1.2 1.9 0 2.3l4.5 1.4 1.7 5.4c.3.9 1.4 1.1 2.1.5l2.6-2.4 4.9 3.6c.9.7 2.2.2 2.4-.9L23.9 5.5c.3-1.4-1.1-2.5-2.5-1.9zM9.9 14.4l-.4 3.7-1.4-4.6 10.4-6.8z"/></svg><span data-i18n="vr.clubCta">Open QUY Club</span></a>
+        </div>
+
+        <!-- FAQ -->
+        <div class="vr-block">
+          <h2 class="vr-h2" data-i18n="vr.faqTitle">Questions</h2>
+          <div class="faq__list faq__list--left">
+            <details class="faq__item"><summary data-i18n="vr.q1"></summary><p data-i18n="vr.a1"></p></details>
+            <details class="faq__item"><summary data-i18n="vr.q2"></summary><p data-i18n="vr.a2"></p></details>
+            <details class="faq__item"><summary data-i18n="vr.q3"></summary><p data-i18n="vr.a3"></p></details>
+            <details class="faq__item"><summary data-i18n="vr.q4"></summary><p data-i18n="vr.a4"></p></details>
+          </div>
+          <p class="vr-help"><span data-i18n="vr.help">Still have questions? Write to our visa run manager:</span> <a href="#" data-visa="manager">@quynhon_visarun</a></p>
+        </div>
       </div>
     </section>
   </main>
@@ -107,5 +234,6 @@
 
   <script src="../i18n.js"></script>
   <script src="../app.js"></script>
+  <script src="visa.js"></script>
 </body>
 </html>

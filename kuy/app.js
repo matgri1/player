@@ -33,6 +33,17 @@
   //  To connect a separate site, put its full address instead,
   //  e.g. visa: "https://visa.kuy.com"
   // ============================================================
+  // ============================================================
+  //  VISA RUNS — the QUY Travel booking system (Telegram bot + web app).
+  //  Booking, sign-in and QUY Club bonuses live there.
+  // ============================================================
+  const VISA_APP = {
+    web: "https://82-27-201-63.nip.io/quytravel/",     // booking website
+    api: "https://82-27-201-63.nip.io/quytravel/api",  // public schedule & prices
+    bot: "quytravel_bot",                               // Telegram bot username
+    manager: "quynhon_visarun"                          // Telegram of the visa run manager
+  };
+
   const SUBSITES = {
     visa: "visa/index.html",
     exchange: "exchange/index.html",
@@ -84,6 +95,15 @@
     if (fromUrl && !getRef()) { store.set(REF_KEY, fromUrl); store.del(REF_HIDE_KEY); }
   })();
 
+  // QUY Club codes look like QUY + letters/numbers; only those are understood by the visa system.
+  const quyCode = () => { const c = getRef(); return /^QUY[A-Z0-9]{6,40}$/.test(c) ? c : ""; };
+  function visaLink(kind) {
+    const c = quyCode();
+    if (kind === "bot") return "https://t.me/" + VISA_APP.bot + (c ? "?startapp=ref_" + c : "/app");
+    if (kind === "manager") return "https://t.me/" + VISA_APP.manager;
+    return VISA_APP.web + (c ? "?ref=" + encodeURIComponent(c) : "");
+  }
+
   function shareLink(code) { return SITE_URL + "?ref=" + encodeURIComponent(code); }
 
   // ---------- Contact links ----------
@@ -123,6 +143,9 @@
       if (!url) return;
       el.href = /^https?:\/\//.test(url) ? url : ROOT + url;
     });
+    document.querySelectorAll("[data-visa]").forEach((el) => {
+      el.href = visaLink(el.dataset.visa); el.target = "_blank"; el.rel = "noopener";
+    });
     // Buttons with class btn--channel take the look of the main chat app.
     const ch = primaryChannel();
     document.body.classList.toggle("channel-telegram", ch === "telegram");
@@ -150,7 +173,7 @@
     }
     banner.hidden = false;
     banner.querySelector(".ref-banner__text strong").textContent = t("ref.bannerTitle");
-    banner.querySelector(".ref-banner__text span").textContent = t("ref.bannerText", { code });
+    banner.querySelector(".ref-banner__text span").textContent = t(/^QUY[A-Z0-9]{6,40}$/.test(code) ? "ref.bannerQuy" : "ref.bannerText", { code });
     banner.querySelector(".ref-banner__close").setAttribute("aria-label", t("ref.bannerClose"));
   }
 
@@ -198,6 +221,8 @@
     setRef,
     cleanCode,
     shareLink,
+    visaApi: VISA_APP.api,
+    quyCode,
     get lang() { return currentLang; },
     locale() { return { en: "en-US", ru: "ru-RU", vi: "vi-VN" }[currentLang] || "en-US"; }
   };
@@ -205,6 +230,7 @@
   document.querySelectorAll(".lang__btn").forEach((btn) => {
     btn.addEventListener("click", () => setLang(btn.dataset.lang));
   });
+  document.addEventListener("kuy:relink", updateLinks);
 
   // ---------- Mobile menu ----------
   const burger = document.getElementById("burger");
