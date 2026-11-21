@@ -368,6 +368,7 @@
         </ol>
 
         <form class="wizard" id="wizard" novalidate autocomplete="on">
+          <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" id="hpWebsite" tabindex="-1" autocomplete="off"></label></div>
           <!-- STEP 1 -->
           <fieldset class="wstep" data-step="1">
             <legend class="wstep__title" data-i18n="bk.s1Title">Where do you want to go?</legend>
@@ -485,14 +486,15 @@
             <div class="review" id="review"></div>
             <div class="total" id="total"></div>
             <p class="nopay"><span aria-hidden="true">🔒</span> <span data-i18n="bk.noPrepay">No prepayment. You pay when you board.</span></p>
+            <p class="field-error" id="sendError" role="alert" hidden></p>
           </fieldset>
 
           <!-- DONE -->
           <div class="wstep wdone" data-step="6" hidden tabindex="-1">
             <div class="wdone__icon" aria-hidden="true">🎉</div>
-            <h2 class="wstep__title" data-i18n="bk.doneTitle">Your request is ready</h2>
+            <h2 class="wstep__title" id="doneTitle">Your request is ready</h2>
             <p class="wstep__help"><span data-i18n="bk.doneCode">Request number:</span> <strong id="doneCode"></strong></p>
-            <p class="wdone__text" data-i18n="bk.doneText">Send it to our organizer. We’ll check the seats and message you to confirm.</p>
+            <p class="wdone__text" id="doneText"></p>
             <div class="wdone__actions">
               <a class="btn btn--telegram btn--lg" id="sendTg" target="_blank" rel="noopener"><span data-i18n="bk.sendTg">Send in Telegram</span></a>
               <a class="btn btn--whatsapp btn--lg" id="sendWa" target="_blank" rel="noopener" hidden><span data-i18n="bk.sendWa">Send in WhatsApp</span></a>

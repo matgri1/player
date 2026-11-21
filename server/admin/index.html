@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Kuy · Админка</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231d64f2'/%3E%3Ccircle cx='44' cy='20' r='8' fill='%23ff8a5b'/%3E%3Cpath d='M8 44c8-6 16-6 24 0s16 6 24 0v12H8z' fill='%2337c3c9'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <!-- Login -->
+  <main class="login" id="loginView" hidden>
+    <form class="login__card" id="loginForm">
+      <div class="brand"><span class="brand__mark"></span><b>Kuy</b> <span>Админка</span></div>
+      <label class="field"><span>Логин</span><input id="lLogin" name="login" autocomplete="username" required></label>
+      <label class="field"><span>Пароль</span><input id="lPass" name="password" type="password" autocomplete="current-password" required></label>
+      <p class="error" id="loginError" hidden></p>
+      <button class="btn btn--primary" type="submit">Войти</button>
+    </form>
+  </main>
+
+  <!-- App -->
+  <div class="app" id="appView" hidden>
+    <header class="top">
+      <div class="brand"><span class="brand__mark"></span><b>Kuy</b> <span>Визараны</span></div>
+      <nav class="tabs" role="tablist">
+        <button class="tab is-active" data-view="overview">Сводка</button>
+        <button class="tab" data-view="requests">Заявки <span class="badge" id="newBadge" hidden></span></button>
+        <button class="tab" data-view="groups">Группы</button>
+      </nav>
+      <div class="top__right">
+        <a class="btn btn--light btn--sm" id="exportBtn" href="/api/admin/export.csv">Выгрузить CSV</a>
+        <button class="btn btn--light btn--sm" id="logoutBtn">Выйти</button>
+      </div>
+    </header>
+
+    <!-- Overview -->
+    <section class="view" id="view-overview">
+      <div class="cards" id="statCards"></div>
+      <div class="panel">
+        <div class="panel__head"><h2>Новые заявки</h2><button class="link" data-goto="requests" data-status="new">Все новые →</button></div>
+        <div id="latestNew"></div>
+      </div>
+      <div class="panel">
+        <div class="panel__head"><h2>Ближайшие группы</h2><button class="link" data-goto="groups">Все группы →</button></div>
+        <div id="nextGroups"></div>
+      </div>
+    </section>
+
+    <!-- Requests -->
+    <section class="view" id="view-requests" hidden>
+      <form class="filters" id="filters">
+        <input type="search" name="q" placeholder="Поиск: код, имя, @username, телефон, отель">
+        <select name="status">
+          <option value="">Все статусы</option>
+          <option value="new">Новые</option><option value="contacted">Связались</option>
+          <option value="confirmed">Подтверждены</option><option value="completed">Завершены</option><option value="cancelled">Отменены</option>
+        </select>
+        <select name="destination"><option value="">Обе границы</option><option value="laos">🇱🇦 Лаос</option><option value="cambodia">🇰🇭 Камбоджа</option></select>
+        <label class="inline">с <input type="date" name="from"></label>
+        <label class="inline">по <input type="date" name="to"></label>
+      </form>
+      <div class="table-wrap"><table class="table" id="reqTable">
+        <thead><tr><th>Создана</th><th>Код</th><th>Поездка</th><th>Чел.</th><th>Контакт</th><th>Статус</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+      <p class="empty" id="reqEmpty" hidden>Заявок не найдено.</p>
+    </section>
+
+    <!-- Groups -->
+    <section class="view" id="view-groups" hidden>
+      <div class="filters"><label class="inline">Начиная с <input type="date" id="groupsFrom"></label></div>
+      <div id="groupList" class="groups"></div>
+    </section>
+  </div>
+
+  <!-- Request drawer -->
+  <div class="drawer" id="drawer" hidden>
+    <div class="drawer__backdrop" data-close></div>
+    <aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+      <div class="drawer__head"><h2 id="dTitle"></h2><button class="icon-btn" data-close aria-label="Закрыть">×</button></div>
+      <div class="drawer__body" id="dBody"></div>
+    </aside>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

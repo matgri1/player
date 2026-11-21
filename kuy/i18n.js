@@ -1430,3 +1430,26 @@ Object.assign(window.KUY_I18N.vi, {
   "ck.i_notify": "Bật thông báo Telegram", "ck.h_notify": "Để tài xế liên lạc khi đón",
   "ck.i_hotel": "Báo khách sạn", "ck.h_hotel": "Gửi chìa khóa hoặc xin hộp ăn sáng sớm"
 });
+
+// ---------- Booking: server submission ----------
+Object.assign(window.KUY_I18N.en, {
+  "bk.sending": "Sending…",
+  "bk.serverCheck": "Some details didn’t pass the check. Go back, review the fields and try again.",
+  "bk.savedTitle": "Request received!",
+  "bk.savedText": "We’ve got your request. The organizer will message you on {channel} to confirm the seats and the pickup time.",
+  "bk.sendTgSaved": "Message the organizer now"
+});
+Object.assign(window.KUY_I18N.ru, {
+  "bk.sending": "Отправляем…",
+  "bk.serverCheck": "Некоторые данные не прошли проверку. Вернитесь назад, проверьте поля и попробуйте ещё раз.",
+  "bk.savedTitle": "Заявка принята!",
+  "bk.savedText": "Мы получили вашу заявку. Организатор напишет вам в {channel}, чтобы подтвердить места и время посадки.",
+  "bk.sendTgSaved": "Написать организатору сейчас"
+});
+Object.assign(window.KUY_I18N.vi, {
+  "bk.sending": "Đang gửi…",
+  "bk.serverCheck": "Một số thông tin chưa hợp lệ. Hãy quay lại, kiểm tra và thử lại.",
+  "bk.savedTitle": "Đã nhận yêu cầu!",
+  "bk.savedText": "Chúng tôi đã nhận yêu cầu. Ban tổ chức sẽ nhắn qua {channel} để xác nhận chỗ và giờ đón.",
+  "bk.sendTgSaved": "Nhắn ban tổ chức ngay"
+});

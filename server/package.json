@@ -1,0 +1,17 @@
+{
+  "name": "kuy-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kuy site API and admin panel: visa run requests from the website",
+  "type": "module",
+  "engines": { "node": ">=20.12" },
+  "scripts": {
+    "start": "node src/index.js",
+    "hash-password": "node scripts/hash-password.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  }
+}

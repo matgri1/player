@@ -945,3 +945,4 @@ select.input { cursor: pointer; }
   .ck-top .seg__opt { flex: 1; }
   .ck-top .seg__opt span { padding: 10px 8px; text-align: center; white-space: nowrap; }
 }
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }

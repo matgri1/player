@@ -28,6 +28,14 @@
   const SITE_URL = "https://matgri1.github.io/player/kuy/";
 
   // ============================================================
+  //  SITE API — where the booking form saves requests (Kuy server).
+  //  "/api" works when the site is served by the Kuy server.
+  //  On GitHub Pages it isn't reachable, and the form falls back
+  //  to sending the request as a Telegram message.
+  // ============================================================
+  const SITE_API = "/api";
+
+  // ============================================================
   //  VISA REMINDER BOT (test) — leave empty until the test bot is ready.
   //  username: bot username without @, e.g. "kuy_reminder_test_bot"
   //  api:      optional HTTPS endpoint of that bot's server (not used yet)
@@ -236,6 +244,7 @@
     shareLink,
     visaApi: VISA_APP.api,
     reminderBot: REMINDER_BOT,
+    siteApi: SITE_API,
     visaLink,
     hasContact: (type) => !!CONTACTS[type],
     quyCode,

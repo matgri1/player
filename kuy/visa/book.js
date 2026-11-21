@@ -37,7 +37,7 @@
     step: 1, dest: "", when: "", reqDate: "",
     pax: [{ name: "", nat: "", natOther: "", visa: "" }],
     cName: "", channel: "telegram", cTg: "", cPhone: "", cPickup: "", cNote: "", cClub: K.quyCode() || "",
-    code: ""
+    code: "", idem: "", saved: false
   });
   let st = blank();
   try {
@@ -340,6 +340,9 @@
 
   function renderDone() {
     $("doneCode").textContent = st.code;
+    $("doneTitle").textContent = K.t(st.saved ? "bk.savedTitle" : "bk.doneTitle");
+    $("doneText").textContent = K.t(st.saved ? "bk.savedText" : "bk.doneText", { channel: st.channel === "telegram" ? "Telegram" : "WhatsApp" });
+    $("sendTg").querySelector("span").textContent = K.t(st.saved ? "bk.sendTgSaved" : "bk.sendTg");
     const msg = buildMessage();
     $("doneMsg").textContent = msg;
     const tg = $("sendTg");
@@ -381,15 +384,67 @@
     e.preventDefault();
     const errs = stepErrors(st.step);
     if (Object.keys(errs).length) { showErrors(errs); return; }
-    if (st.step === 5) {
-      const d = todayISO(0).slice(2).replace(/-/g, "");
-      st.code = "QN-" + d + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
-      go(6);
-      try { localStorage.removeItem(DRAFT); } catch (err) { /* ignore */ }
-      return;
-    }
+    if (st.step === 5) { submitRequest(); return; }
     go(st.step + 1);
   });
+  // ---------------- Sending to the Kuy server ----------------
+  function payload() {
+    const d = chosenDep();
+    return {
+      lang: K.lang,
+      destination: st.dest,
+      request_mode: d ? "scheduled" : "date_request",
+      quy_trip_id: d ? d.id : null,
+      travel_date: d ? d.departure_date : st.reqDate,
+      departure_time: d ? String(d.departure_time || "").slice(0, 5) : null,
+      passengers: st.pax.map((p) => ({ name: p.name.trim(), nationality_code: p.nat, nationality: p.nat === "OTHER" ? p.natOther.trim() : natName(p.nat), visa: p.visa })),
+      contact_name: st.cName.trim(),
+      contact_channel: st.channel,
+      contact_value: st.channel === "telegram" ? st.cTg.replace(/^@/, "") : st.cPhone.trim(),
+      pickup: st.cPickup.trim(),
+      note: st.cNote.trim(),
+      club_code: st.cClub.trim().toUpperCase() || null,
+      ref_code: K.getRef() || null,
+      est_price_per_person: d && Number(d.price_vnd) > 0 ? Number(d.price_vnd) : null,
+      idempotency_key: st.idem,
+      website: $("hpWebsite").value
+    };
+  }
+  let sending = false;
+  async function submitRequest() {
+    if (sending) return;
+    sending = true;
+    const btn = $("nextBtn"), err = $("sendError");
+    err.hidden = true;
+    btn.disabled = true; btn.textContent = K.t("bk.sending");
+    if (!st.idem) { st.idem = "web-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10); save(); }
+    let saved = false, code = "";
+    if (K.siteApi) {
+      try {
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), 12000);
+        const res = await fetch(K.siteApi + "/visa/requests", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload()), signal: ctrl.signal, credentials: "omit"
+        });
+        clearTimeout(timer);
+        const data = res.headers.get("content-type")?.includes("json") ? await res.json() : null;
+        if ((res.status === 200 || res.status === 201) && data && data.code) { saved = true; code = data.code; }
+        else if (res.status === 400) {
+          err.textContent = K.t("bk.serverCheck"); err.hidden = false;
+          sending = false; btn.disabled = false; btn.textContent = K.t("bk.finish");
+          return;
+        }
+        // 403/404/405/429/5xx: no server here or it can't take the request now → Telegram fallback
+      } catch (e) { /* offline or no server (GitHub Pages) → Telegram fallback */ }
+    }
+    if (!code) code = "QN-" + todayISO(0).slice(2).replace(/-/g, "") + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
+    st.code = code; st.saved = saved;
+    sending = false; btn.disabled = false;
+    go(6);
+    try { localStorage.removeItem(DRAFT); } catch (e) { /* ignore */ }
+  }
+
   $("backBtn").addEventListener("click", () => go(Math.max(1, st.step - 1)));
   $("newReq").addEventListener("click", () => { st = blank(); save(); go(1); });
 
