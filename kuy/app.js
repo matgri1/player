@@ -71,21 +71,6 @@
   window.addEventListener("resize", sizeOrbit);
   sizeOrbit();
 
-  // ---------- Reveal on scroll ----------
-  const revealEls = document.querySelectorAll(".pillar, .card, .step, .contact, .about__text, .section__head");
-  if ("IntersectionObserver" in window) {
-    revealEls.forEach((el) => el.classList.add("reveal"));
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach((el) => io.observe(el));
-  }
-
   // ---------- Year ----------
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
