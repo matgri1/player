@@ -857,3 +857,19 @@ select.input { cursor: pointer; }
 @media (max-width: 700px) {
   .trip__moto--1 { height: 44px; } .trip__moto--2 { height: 46px; } .trip__moto--3 { height: 54px; } .trip__moto--4 { height: 66px; }
 }
+/* five bikes, evenly spaced */
+.trip__moto--1 { animation-delay: 0s; }
+.trip__moto--2 { animation-delay: -4.4s, 0s; }
+.trip__moto--3 { animation-delay: -8.8s; }
+.trip__moto--5 { height: 66px; animation-delay: -13.2s; }
+.trip__moto--4 { animation-delay: -17.6s; }
+@media (max-width: 700px) {
+  .trip__moto--1 { animation-delay: 0s; }
+  .trip__moto--2 { animation-delay: -3.2s, 0s; }
+  .trip__moto--3 { animation-delay: -6.4s; }
+  .trip__moto--5 { height: 52px; animation-delay: -9.6s; }
+  .trip__moto--4 { animation-delay: -12.8s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trip__moto--1 { left: 18%; } .trip__moto--2 { left: 36%; } .trip__moto--3 { left: 54%; } .trip__moto--5 { left: 70%; } .trip__moto--4 { left: 84%; }
+}
