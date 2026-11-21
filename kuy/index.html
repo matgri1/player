@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuy — Services in Quy Nhon, Vietnam</title>
+  <meta name="description" content="Kuy is a local ecosystem of services in Quy Nhon, Vietnam: visa runs, currency exchange, Russian cuisine, tours and a marketplace.">
+  <meta name="theme-color" content="#0b3a53">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b3a53'/%3E%3Ccircle cx='44' cy='20' r='8' fill='%23ff8a5b'/%3E%3Cpath d='M8 44c8-6 16-6 24 0s16 6 24 0v12H8z' fill='%2337c3c9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600;700&display=swap&subset=cyrillic,vietnamese" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="Kuy">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="currentColor"/><circle cx="44" cy="20" r="8" fill="#ff8a5b"/><path d="M8 44c8-6 16-6 24 0s16 6 24 0v12H8z" fill="#37c3c9"/></svg>
+        </span>
+        <span class="logo__text">KUY</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#how" data-i18n="nav.how">How it works</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" class="lang__btn" data-lang="en">EN</button>
+          <button type="button" class="lang__btn" data-lang="ru">RU</button>
+          <button type="button" class="lang__btn" data-lang="vi">VI</button>
+        </div>
+        <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <svg class="hero__waves" viewBox="0 0 1440 220" preserveAspectRatio="none">
+          <path d="M0 120c120-40 240-40 360 0s240 40 360 0 240-40 360 0 240 40 360 0v100H0z" fill="rgba(55,195,201,.18)"/>
+          <path d="M0 160c120-30 240-30 360 0s240 30 360 0 240-30 360 0 240 30 360 0v60H0z" fill="var(--bg)"/>
+        </svg>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow eyebrow--light" data-i18n="hero.eyebrow">Quy Nhon · Vietnam</p>
+          <h1 class="hero__title" data-i18n="hero.title">Everything you need in Quy Nhon — in one place</h1>
+          <p class="hero__lead" data-i18n="hero.lead">Kuy is a local ecosystem of services for travelers and expats: visa runs, currency exchange, Russian cuisine, tours and, soon, a marketplace. One team, one contact, no hassle.</p>
+          <div class="hero__cta">
+            <a href="#services" class="btn btn--primary" data-i18n="hero.ctaPrimary">Explore services</a>
+            <a href="#contact" class="btn btn--ghost" data-i18n="hero.ctaSecondary">Message us</a>
+          </div>
+          <ul class="chips">
+            <li data-i18n="hero.chip1">Local team</li>
+            <li>EN · RU · VI</li>
+            <li data-i18n="hero.chip3">Honest prices</li>
+          </ul>
+        </div>
+
+        <!-- Ecosystem orbit -->
+        <div class="orbit" aria-hidden="true">
+          <div class="orbit__ring orbit__ring--outer"></div>
+          <div class="orbit__ring orbit__ring--inner"></div>
+          <div class="orbit__core">
+            <span>KUY</span>
+            <small data-i18n="hero.core">ecosystem</small>
+          </div>
+          <div class="orbit__item" style="--a:-90deg"><span class="orbit__icon">🛂</span><span data-i18n="services.visa.title">Visa run</span></div>
+          <div class="orbit__item" style="--a:-18deg"><span class="orbit__icon">💱</span><span data-i18n="services.exchange.short">Exchange</span></div>
+          <div class="orbit__item" style="--a:54deg"><span class="orbit__icon">🥟</span><span data-i18n="services.food.short">Cuisine</span></div>
+          <div class="orbit__item" style="--a:126deg"><span class="orbit__icon">🏝️</span><span data-i18n="services.tours.title">Tours</span></div>
+          <div class="orbit__item orbit__item--soon" style="--a:198deg"><span class="orbit__icon">🛍️</span><span data-i18n="services.market.title">Marketplace</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="section" id="about">
+      <div class="container about">
+        <div class="about__text">
+          <p class="eyebrow" data-i18n="about.eyebrow">About us</p>
+          <h2 class="section__title" data-i18n="about.title">What is Kuy?</h2>
+          <p data-i18n="about.p1">Kuy was born in Quy Nhon. We live here, know the city inside out, and built the services we ourselves were missing when we first arrived.</p>
+          <p data-i18n="about.p2">Instead of hunting for a dozen contacts across group chats, you get one trusted team that takes care of the everyday things — so you can enjoy the sea, the food and the city.</p>
+        </div>
+        <ul class="pillars">
+          <li class="pillar">
+            <span class="pillar__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </span>
+            <div>
+              <h3 data-i18n="about.pillar1.title">Truly local</h3>
+              <p data-i18n="about.pillar1.text">We live in Quy Nhon and know every corner of it.</p>
+            </div>
+          </li>
+          <li class="pillar">
+            <span class="pillar__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <div>
+              <h3 data-i18n="about.pillar2.title">Trusted</h3>
+              <p data-i18n="about.pillar2.text">Clear terms, no hidden fees, every deal transparent.</p>
+            </div>
+          </li>
+          <li class="pillar">
+            <span class="pillar__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+            </span>
+            <div>
+              <h3 data-i18n="about.pillar3.title">In your language</h3>
+              <p data-i18n="about.pillar3.text">Support in English, Russian and Vietnamese.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== SERVICES ========== -->
+    <section class="section section--tinted" id="services">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow" data-i18n="services.eyebrow">Services</p>
+          <h2 class="section__title" data-i18n="services.title">What we do</h2>
+          <p class="section__lead" data-i18n="services.lead">We start with the essentials. The ecosystem will keep growing.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__top">
+              <span class="card__icon card__icon--blue">🛂</span>
+              <span class="badge badge--live" data-i18n="badge.live">Available</span>
+            </div>
+            <h3 class="card__title" data-i18n="services.visa.title">Visa run</h3>
+            <p class="card__text" data-i18n="services.visa.text">Extend your stay without stress: we plan the route, arrange transport to the border and bring you back to Quy Nhon.</p>
+            <a href="#contact" class="card__link" data-i18n="card.more">Ask about it</a>
+          </article>
+
+          <article class="card">
+            <div class="card__top">
+              <span class="card__icon card__icon--green">💱</span>
+              <span class="badge badge--live" data-i18n="badge.live">Available</span>
+            </div>
+            <h3 class="card__title" data-i18n="services.exchange.title">Currency exchange</h3>
+            <p class="card__text" data-i18n="services.exchange.text">Exchange rubles, dollars and other currencies to Vietnamese dong at a good rate — fast and safe.</p>
+            <a href="#contact" class="card__link" data-i18n="card.more">Ask about it</a>
+          </article>
+
+          <article class="card">
+            <div class="card__top">
+              <span class="card__icon card__icon--coral">🥟</span>
+              <span class="badge badge--live" data-i18n="badge.live">Available</span>
+            </div>
+            <h3 class="card__title" data-i18n="services.food.title">Russian cuisine</h3>
+            <p class="card__text" data-i18n="services.food.text">Homemade food that tastes like home: borscht, pelmeni, blini and more. Order easily via messenger.</p>
+            <a href="#contact" class="card__link" data-i18n="card.more">Ask about it</a>
+          </article>
+
+          <article class="card">
+            <div class="card__top">
+              <span class="card__icon card__icon--sand">🏝️</span>
+              <span class="badge badge--live" data-i18n="badge.live">Available</span>
+            </div>
+            <h3 class="card__title" data-i18n="services.tours.title">Tours</h3>
+            <p class="card__text" data-i18n="services.tours.text">Discover Quy Nhon and beyond: Ky Co beach, Eo Gio, ancient Cham towers, islands and waterfalls — with a guide who speaks your language.</p>
+            <a href="#contact" class="card__link" data-i18n="card.more">Ask about it</a>
+          </article>
+
+          <article class="card card--soon">
+            <div class="card__top">
+              <span class="card__icon card__icon--violet">🛍️</span>
+              <span class="badge badge--soon" data-i18n="badge.soon">Coming soon</span>
+            </div>
+            <h3 class="card__title" data-i18n="services.market.title">Marketplace</h3>
+            <p class="card__text" data-i18n="services.market.text">Buy, sell, rent and find anything within the Quy Nhon community — all in one place.</p>
+            <span class="card__link card__link--muted" data-i18n="card.soon">Stay tuned</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
+          <h2 class="section__title" data-i18n="how.title">Three simple steps</h2>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num">1</span>
+            <h3 data-i18n="how.s1.title">Choose a service</h3>
+            <p data-i18n="how.s1.text">Pick what you need — from currency exchange to a tour.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">2</span>
+            <h3 data-i18n="how.s2.title">Message us</h3>
+            <p data-i18n="how.s2.text">Write to us on Telegram, WhatsApp or Zalo in the language you prefer.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">3</span>
+            <h3 data-i18n="how.s3.title">We handle the rest</h3>
+            <p data-i18n="how.s3.text">We confirm the details and get everything done quickly.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact">
+          <div class="contact__text">
+            <h2 class="section__title section__title--light" data-i18n="contact.title">Got a question? Message us</h2>
+            <p data-i18n="contact.lead">We reply in English, Russian and Vietnamese.</p>
+          </div>
+          <div class="contact__buttons">
+            <!-- TODO: replace # with real links -->
+            <a href="#" class="btn btn--messenger" target="_blank" rel="noopener">Telegram</a>
+            <a href="#" class="btn btn--messenger" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="#" class="btn btn--messenger" target="_blank" rel="noopener">Zalo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="#top" class="logo logo--footer">
+          <span class="logo__mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="currentColor"/><circle cx="44" cy="20" r="8" fill="#ff8a5b"/><path d="M8 44c8-6 16-6 24 0s16 6 24 0v12H8z" fill="#37c3c9"/></svg>
+          </span>
+          <span class="logo__text">KUY</span>
+        </a>
+        <p class="footer__tagline" data-i18n="footer.tagline">Ecosystem of services in Quy Nhon, Vietnam.</p>
+      </div>
+      <p class="footer__copy">© <span id="year">2026</span> Kuy. <span data-i18n="footer.rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
