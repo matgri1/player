@@ -775,3 +775,55 @@ select.input { cursor: pointer; }
   .trip.is-moving .trip__lane::after, .trip.is-moving .trip__car svg, .trip.is-moving .trip__wheel { animation: none; }
 }
 .choice__box--row > span:not(.choice__flag):not(.pill):not(.dep-date):not(.dep-info) { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+
+/* ================= Vietnam road scene (overrides) ================= */
+.trip__road { height: 132px; background: none; isolation: isolate; }
+.trip__scenery { display: none; }
+.trip__sky { position: absolute; inset: 0; z-index: -3;
+  background: linear-gradient(180deg, #5d6fb3 0%, #c98fb0 38%, #f6b48a 62%, #ffd9a6 78%); }
+.trip__sky--day { background: linear-gradient(180deg, #8ecdf7 0%, #c4e6fb 55%, #e9f7ff 78%);
+  opacity: var(--p); transition: opacity 1s ease; }
+.trip__sun { position: absolute; z-index: -2; width: 22px; height: 22px; border-radius: 50%;
+  background: #ffd75e; box-shadow: 0 0 0 6px rgba(255,215,94,.3), 0 0 24px 8px rgba(255,200,80,.35);
+  left: calc(18% + var(--p) * 50%); bottom: calc(52px + var(--p) * 48px);
+  transition: left 1s cubic-bezier(.3,.7,.3,1), bottom 1s cubic-bezier(.3,.7,.3,1); }
+/* hills get taller towards the highlands and the border */
+.trip__hills { position: absolute; z-index: -1; left: 0; right: 0; bottom: 40px; height: 64px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 64' preserveAspectRatio='none'%3E%3Cpath d='M0 64V56l40-6 40 4 50-14 40 6 40-22 30 12 40-26 30 14 40-20 30 16 V64z' fill='%2389b9a0'/%3E%3Cpath d='M0 64V60l60-4 60 2 60-10 50 4 50-16 40 8 50-18 30 8 V64z' fill='%236fa588'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat; }
+.trip__sea { position: absolute; z-index: -1; left: 0; width: 17%; bottom: 40px; height: 14px;
+  background: repeating-linear-gradient(90deg, #3aa6d9 0 10px, #5cc0ea 10px 18px); border-radius: 0 8px 0 0; }
+.trip__ground { position: absolute; z-index: -1; left: 0; right: 0; bottom: 8px; height: 34px; background: #9ccf7a; }
+.trip__paddy { position: absolute; z-index: -1; left: 22%; width: 30%; bottom: 40px; height: 9px;
+  background: repeating-linear-gradient(90deg, #7fc35f 0 6px, #a9dd7f 6px 9px, #8fd0e0 9px 11px); border-radius: 3px 3px 0 0; }
+.prop { position: absolute; left: var(--x); bottom: 40px; height: var(--h); width: auto; z-index: 0; }
+.prop--gate { z-index: 0; }
+.trip__lane { bottom: 6px; height: 36px; background: #5b6370; z-index: 1; }
+.trip__lane::after { top: 17px; }
+.trip__done { bottom: 6px; height: 36px; z-index: 1; background: rgba(29,100,242,.18); }
+.trip__moto { position: absolute; z-index: 2; bottom: 26px; height: 18px; width: auto; left: 100%;
+  animation: moto 12s linear infinite; }
+@keyframes moto { from { left: 102%; } to { left: -12%; } }
+.trip__car { z-index: 3; bottom: 6px; width: 140px; left: calc(var(--p) * (100% - 176px) + 6px); }
+.trip__beam { opacity: 0; }
+.trip.is-moving .trip__beam { opacity: 1; }
+.trip__flagpole { z-index: 2; right: auto; left: calc(89% + 18px); bottom: 84px; font-size: 22px; }
+.trip.is-arrived .trip__sky--day { opacity: 1; }
+
+@media (max-width: 700px) {
+  .trip__road { height: 116px; }
+  .trip__car { width: 112px; left: calc(var(--p) * (100% - 146px) + 4px); }
+  .prop { transform: scale(.82); transform-origin: bottom left; }
+  .trip__flagpole { left: calc(89% + 14px); bottom: 74px; }
+  .trip__sea { width: 14%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trip__moto { animation: none; left: 46%; }
+  .trip__sky--day, .trip__sun { transition: none; }
+}
+.trip__ground { bottom: 0; height: 42px; }
+@media (max-width: 700px) {
+  .prop--gate { left: auto; right: -4px; transform-origin: bottom right; }
+  .trip__flagpole { left: auto; right: 14px; }
+}
+@media (max-width: 700px) { .trip__status { padding-right: 64px; } }
